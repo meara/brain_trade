@@ -2,7 +2,12 @@ BrainTrade::Application.routes.draw do
   
   get '/layout/application'
 
-  resources :sessions
+  get 'login' => 'sessions#new', :as => "new_session"
+  post 'login' => 'sessions#create', :as => "login_sessions"
+  get 'logout' => 'sessions#destroy', :as => "logout_sessions"
+
+
+  resources :users
   root to: "sessions#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
