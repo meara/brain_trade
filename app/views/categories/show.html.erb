@@ -1,0 +1,7 @@
+<h1><%= @category.name %></h1>
+
+<% @subjects.each do |subject| %>
+  <ul class="list-group">
+    <li class="list-group-item"><a href="/subjects/<%=subject.id%>"><%= subject.name %></a></li>
+  </ul>
+<% end %>
