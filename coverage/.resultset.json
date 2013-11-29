@@ -1,0 +1,37 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/apprentice/Desktop/brain_trade/app/models/category.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/brain_trade/app/models/meetup.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/brain_trade/app/models/offering.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/apprentice/Desktop/brain_trade/app/models/user.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1385762743
+  }
+}
