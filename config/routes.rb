@@ -1,16 +1,15 @@
 BrainTrade::Application.routes.draw do
   
-  get '/layout/application'
-
   get 'login' => 'sessions#new', :as => "new_session"
   post 'login' => 'sessions#create', :as => "login_sessions"
   get 'logout' => 'sessions#destroy', :as => "logout_sessions"
 
-
   resources :users
-  root to: "sessions#index"
+ 
+  resources :categories, only: [:index, :show]
+  resources :offerings
 
-  resources :categories
+  root to: "sessions#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
