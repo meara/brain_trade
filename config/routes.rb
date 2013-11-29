@@ -10,6 +10,8 @@ BrainTrade::Application.routes.draw do
   resources :users
   root to: "sessions#index"
 
+  resources :categories
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
