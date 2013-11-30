@@ -9,7 +9,9 @@
 <% end %>
 
 <h3>Description of my <%= @offering.subject.name %> expertise...</h3>
+
 <div><%= @offering.details %></div>
+
 
 <!-- <h3>Rankings would go here</h3>
 <h3>Show up rate would go here</h3>
@@ -17,6 +19,10 @@
 
 <br>
 <button>Learn <%= @offering.subject.name %> from <%= @offering.teacher.first_name %></button>
+
+<% if @offering.teacher_id == session[:user_id] %>
+<div class="edit_button"><%= link_to "Edit Offering", edit_offering_path %></div><br>
+<% end %>
 
 
 <h1></h1>
