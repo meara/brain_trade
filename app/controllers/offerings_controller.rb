@@ -8,4 +8,8 @@ class OfferingsController < ApplicationController
     p params
     @offering = Offering.find_by_id(params[:id])
   end
+
+  def new
+  end
+
 end
