@@ -1,22 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/apprentice/Desktop/brain_trade/app/models/category.rb": [
+      "/Users/Oliver/Desktop/brain_trade/app/models/category.rb": [
         1,
         1,
         null,
         1,
         null
       ],
-      "/Users/apprentice/Desktop/brain_trade/app/models/subject.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null
-      ],
-      "/Users/apprentice/Desktop/brain_trade/app/models/meetup.rb": [
+      "/Users/Oliver/Desktop/brain_trade/app/models/subject.rb": [
         1,
         1,
         1,
@@ -24,7 +16,15 @@
         1,
         null
       ],
-      "/Users/apprentice/Desktop/brain_trade/app/models/offering.rb": [
+      "/Users/Oliver/Desktop/brain_trade/app/models/meetup.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/Oliver/Desktop/brain_trade/app/models/offering.rb": [
         1,
         1,
         1,
@@ -35,7 +35,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/brain_trade/app/models/user.rb": [
+      "/Users/Oliver/Desktop/brain_trade/app/models/user.rb": [
         1,
         null,
         null,
@@ -57,7 +57,7 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/brain_trade/app/controllers/sessions_controller.rb": [
+      "/Users/Oliver/Desktop/brain_trade/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -86,14 +86,14 @@
         null,
         null
       ],
-      "/Users/apprentice/Desktop/brain_trade/app/controllers/application_controller.rb": [
+      "/Users/Oliver/Desktop/brain_trade/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/apprentice/Desktop/brain_trade/app/controllers/users_controller.rb": [
+      "/Users/Oliver/Desktop/brain_trade/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -130,11 +130,11 @@
         1,
         null,
         1,
+        null,
+        null,
+        null,
         1,
-        1,
-        1,
-        1,
-        1,
+        null,
         1,
         1,
         null,
@@ -153,6 +153,6 @@
         null
       ]
     },
-    "timestamp": 1385833176
+    "timestamp": 1385838342
   }
 }
