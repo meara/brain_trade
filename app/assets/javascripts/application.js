@@ -15,3 +15,10 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+  $("a[data-remote=true]").on("ajax:success", function(event, data) {
+    $("a[data-remote=true]").replaceWith(data);
+  });
+});
