@@ -17,7 +17,10 @@
       <%= user.label :password %>
       <%= user.text_field :password  %>
     </div id="profile_info">
-
+    <div>
+      <%= user.label :password_confirmation %>
+      <%= user.password_field :password_confirmation  %>
+    </div>
     
     <%= user.submit %>
 
