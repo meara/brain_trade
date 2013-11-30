@@ -14,6 +14,11 @@
     </div>
 
     <div id="profile_info">
+      <%= user.label :bio %>
+      <%= user.text_area :bio, cols: 30, rows: 10%>
+    </div>
+
+    <div id="profile_info">
       <%= user.label :password %>
       <%= user.text_field :password  %>
     </div id="profile_info">

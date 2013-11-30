@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
 
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :bio
 
   has_many :ratings, foreign_key: :learner_id
   has_many :learning_meetups, class_name: "Meetup", foreign_key: :learner_id
