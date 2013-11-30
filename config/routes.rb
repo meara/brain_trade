@@ -9,6 +9,7 @@ BrainTrade::Application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :subjects, only: [:show]
   resources :offerings
+  resources :meetups, except: [:index, :destroy]
 
   root to: "sessions#index"
 
