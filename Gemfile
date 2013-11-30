@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -54,7 +56,8 @@ group :test do
   gem 'factory_girl_rails', '~> 4.0'
 end
 
-
+#for heroku
+gem 'rails_12factor', group: :production
 
 
 # Use ActiveModel has_secure_password
