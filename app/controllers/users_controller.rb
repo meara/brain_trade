@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
-  def index
-    #my account information
-   @user = User.find(session[:user_id])
-  end
+  # We can probably delete the index?
+  # def index
+  #   #my account information
+  #  @user = User.find(session[:user_id])
+  # end
 
   def create
     #create account
@@ -48,9 +49,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    #profile page (things to teach and learn)
-     #@user = current_user
+    @user = User.find(session[:user_id])
   end
+
   def destroy
   end
 

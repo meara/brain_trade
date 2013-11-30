@@ -1,1 +1,24 @@
-User profile page (Things that they teach and are learning)
+<div class="container">
+
+	<% provide(:title, @user.first_name) %>
+	<h1>
+		<%= gravatar_for @user %>
+		<%= @user.first_name %>
+	</h1>
+
+  <h3 id="profile_info">Your profile information </h3>
+
+  <label id="profile_info"> First name: </label><%= @user.first_name  %><br><br>
+  <label id="profile_info"> Last name: </label><%= @user.last_name  %><br><br>
+  <label id="profile_info"> Email: </label><%= @user.email  %><br><br>
+
+  <label id="profile_info"> Bio </label><%= @user.bio  %><br><br>
+
+  <h3>Things I can teach...</h3>
+  <ul><% @user.offerings.each do |offering| %>
+  <li><%= link_to offering.subject.name, offering_path(offering) %></li>
+  <% end %></ul>
+
+  <br><br>
+  <div class="edit_button"><%= link_to "Edit", edit_user_path(current_user),:remote => true %></div><br>
+</div>
