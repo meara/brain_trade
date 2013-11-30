@@ -6,12 +6,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">BrainTrade</a>
+       <%= link_to "BrainTrade", root_path, {:class => "brand"}%>
       <div class="container-fluid nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Link1", "/path1"  %></li>
-          <li><%= link_to "Link2", "/path2"  %></li>
-          <li><%= link_to "Link3", "/path3"  %></li>
+           <!-- If user is signed in-->
+                <% if current_user %>
+                      <li><%= link_to "Logout", logout_sessions_path %></li>
+                      <li><%= link_to "MyAccount", users_path %></li>
+                <% else %>
+                      <li id="right"><%= link_to "Sign Up or Login", new_user_path %></li>
+                <% end %>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
