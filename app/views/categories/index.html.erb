@@ -1,8 +1,8 @@
 <h1>Browse Learning Topics By Category:</h1>
 
 <% @categories.each do |category| %>
-  <ul class="list-group">
-    <li class="list-group-item"><a href="/categories/<%=category.id%>"><%= category.name %></a></li>
+  <ul>
+    <li><a href="/categories/<%=category.id%>"><%= category.name %></a></li>
   </ul>
 <% end %>
 
