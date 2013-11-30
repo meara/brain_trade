@@ -7,6 +7,7 @@ BrainTrade::Application.routes.draw do
   resources :users
  
   resources :categories, only: [:index, :show]
+  resources :subjects, only: [:show]
   resources :offerings
 
   root to: "sessions#index"
