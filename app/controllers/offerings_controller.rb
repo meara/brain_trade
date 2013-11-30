@@ -5,7 +5,6 @@ class OfferingsController < ApplicationController
   end
 
   def show
-    p params
     @offering = Offering.find_by_id(params[:id])
   end
 
@@ -41,4 +40,34 @@ class OfferingsController < ApplicationController
     end
   end
 
+  def edit
+    @offering = Offering.find(params[:id])
+    @category_names = []
+    Category.all.each { |cat| @category_names << cat.name }
+  end
+
+  def update
+    @offering = Offering.find(params[:id])
+    category = Category.find_by_name(params[:offering][:category])
+    subject = category.subjects.find_by_name(params[:offering][:subject])
+    if subject
+      updated = @offering.update(subject_id: subject.id,
+                      hangout: params[:offering][:hangout],
+                      location: params[:offering][:location],
+                      details: params[:offering][:details])
+    else
+      subject = category.subjects.create(name: params[:offering][:subject])
+      updated = @offering.update(subject_id: subject.id,
+                      hangout: params[:offering][:hangout],
+                      location: params[:offering][:location],
+                      details: params[:offering][:details])
+    end
+    if updated
+      flash[:success] = 'Offering Updated'
+      redirect_to offering_path(@offering)
+    else
+      flash.now[:error] = 'Offering not Updated'
+      render new_offering_path
+    end
+  end
 end
