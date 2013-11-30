@@ -1,6 +1,6 @@
 <h1>All offerings on this site</h1>
 <% @offerings.each do |offering| %>
   <ul class="list-group">
-    <li class="list-group-item"><a href="/offerings/<%=offering.id%>"> by <%= User.find_by_id(offering.teacher_id).first_name %></a></li>
+    <li class="list-group-item"><a href="/offerings/<%=offering.id%>"><%= offering.subject.name %> by <%= User.find_by_id(offering.teacher_id).first_name %></a></li>
   </ul>
 <% end %>
