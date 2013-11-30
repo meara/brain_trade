@@ -1,0 +1,38 @@
+<h1>Create a new teaching offering</h1>
+
+<!-- Subject:
+Hangout? (Y/N)
+In person? 
+(If yes, show location)
+Location:
+More details: (Your background in this subject, etc.) -->
+
+<%= form_for @offering, url: {action: "create"} do |f| %>
+  
+  <%= f.label :category %>
+  <%= f.select :category, @category_names %>
+
+  <%= f.label :subject %>
+  <%= f.text_field :subject %>
+
+  <%= f.label :hangout %>
+  <%= f.check_box :hangout %>
+
+  <%= f.label :in_person %>
+  <%= f.check_box :in_person %>
+
+
+  <!-- for v 1.1 will add AJAX so this field
+  only appears if in-person box is checked -->
+  <%= f.label :location %> 
+  <%= f.text_field :location %>
+
+  <%= f.label :details %>
+  <%= f.text_area :details %>
+
+  <br>
+
+  <%= f.submit "Create" %>
+<% end %>
+
+

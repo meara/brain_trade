@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 
-  def index
-    #my account information
-   @user = User.find(session[:user_id])
-  end
+  # We can probably delete the index?
+  # def index
+  #   #my account information
+  #  @user = User.find(session[:user_id])
+  # end
 
   def create
     #create account
@@ -34,23 +35,23 @@ class UsersController < ApplicationController
   def update
     #update profile
     @user = User.find(session[:user_id])
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    puts @user
-     puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    # puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    # puts @user
+    #  puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     if @user.update_attributes(params[:user])
-        puts "****************************************"
+        # puts "****************************************"
         flash[:success] = "Your info has been updated!"
         redirect_to users_path(@user)
     else
-        flash[:success] = "Your info has had a problem updating. Try again"
+        flash[:error] = "Your info has had a problem updating. Try again"
         render :edit
     end
   end
 
   def show
-    #profile page (things to teach and learn)
-     #@user = current_user
+    @user = User.find(session[:user_id])
   end
+
   def destroy
   end
 
