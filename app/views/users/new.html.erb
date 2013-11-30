@@ -1,0 +1,63 @@
+<div class="container">
+        <%= form_for(@user) do |user| %>
+            <h1>Create Account</h1>
+
+                <!-- validations -->
+                  <% if @user.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved: </h2>
+
+                        <ul>
+                          <% @user.errors.full_messages.each do |msg| %>
+                          <li><%= msg %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                      <% end %>
+            <!-- Create an Account form -->
+            <div>
+                <%= user.label :first_name %>
+                <%= user.text_field :first_name  %>
+            </div>
+            
+            <div>
+                <%= user.label :last_name %>
+                <%= user.text_field :last_name  %>
+            </div>
+            
+            <div>
+                <%= user.label :email %>
+                <%= user.text_field :email  %>
+            </div>
+
+            <div>
+                <%= user.label :password %>
+                <%= user.password_field :password %>
+            </div>
+              <div>
+                <%= user.label :password_confirmation %>
+                <%= user.password_field :password_confirmation  %>
+            </div>
+                <%= user.submit nil, id: "create_account" %>
+        <% end %>
+
+</div>
+
+<div class="container">
+
+        <!-- Login form -->
+        <h1>Login</h1>
+
+        <%=form_tag login_sessions_path do %>
+        <div>
+            <%= label_tag :email %>
+            <%= text_field_tag :email, nil, id: "login_email" %><br>
+        </div>
+        <div>
+            <%= label_tag :password %>
+            <%= password_field_tag :password,  nil, id: "login_password" %><br>
+        </div>
+            <%= submit_tag  nil, id: "login_user" %>
+        <% end %>
+
+</div>
