@@ -1,0 +1,24 @@
+  <%= form_for @user do |user| %>
+    <div id="profile_info">
+      <%= user.label :first_name %>
+      <%= user.text_field :first_name  %>
+    </div>
+     <div id="profile_info">
+      <%= user.label :last_name %>
+      <%= user.text_field :last_name  %>
+    </div>
+
+    <div id="profile_info">
+      <%= user.label :email %>
+      <%= user.text_field :email  %>
+    </div>
+
+    <div id="profile_info">
+      <%= user.label :password %>
+      <%= user.text_field :password  %>
+    </div id="profile_info">
+
+    
+    <%= user.submit %>
+
+  <% end %>
