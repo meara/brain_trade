@@ -4,7 +4,6 @@ class OfferingsController < ApplicationController
     @offerings = Offering.all
   end
 
-
   def show
     p params
     @offering = Offering.find_by_id(params[:id])
