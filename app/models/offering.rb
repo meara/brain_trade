@@ -3,7 +3,7 @@ class Offering < ActiveRecord::Base
   has_many :meetups
   belongs_to :subject
 
-  attr_accessible :teacher_id, :hangout, :location, :subject_idgit
+  attr_accessible :teacher_id, :hangout, :location, :subject_id
 end
 
 

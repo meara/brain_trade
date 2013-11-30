@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do 
-  let(:user) { user = User.new(first_name: "Connor", last_name: "McCrone", email: "con@mail.com", password_digest: "password" ) }
+  let(:user) { user = User.new(first_name: "Connor", last_name: "McCrone", email: "con@mail.com", password: "password", password_confirmation: 'password' ) }
 
   it 'can be created' do 
     expect(user).to_not be_nil

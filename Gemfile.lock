@@ -82,6 +82,9 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack_session_access (0.1.1)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (4.0.0)
       actionmailer (= 4.0.0)
       actionpack (= 4.0.0)
@@ -180,6 +183,7 @@ DEPENDENCIES
   jquery-rails
   pg
   protected_attributes
+  rack_session_access
   rails (= 4.0.0)
   rspec-rails (~> 3.0.0.beta)
   sass-rails (~> 4.0.0)
