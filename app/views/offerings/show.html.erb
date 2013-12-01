@@ -18,7 +18,12 @@
 <h3>Reviews would go here</h3> -->
 
 <br>
-<button>Learn <%= @offering.subject.name %> from <%= @offering.teacher.first_name %></button>
+<!-- <button>Learn <%= @offering.subject.name %> from <%= @offering.teacher.first_name %></button> -->
+
+<div><%#= link_to "Learn #{@offering.subject.name} from #{@offering.teacher.first_name}", meetups_path %></div>
+
+<%= button_to "Learn #{@offering.subject.name} from #{@offering.teacher.first_name}", controller: 'meetups', action: "create", :"data-offering_id" => @offering.id %>
+
 
 <% if @offering.teacher_id == session[:user_id] %>
 <div class="edit_button"><%= link_to "Edit Offering", edit_offering_path %></div><br>

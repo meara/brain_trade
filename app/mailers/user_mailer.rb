@@ -2,19 +2,25 @@ class UserMailer < ActionMailer::Base
   default from: 'braintradeteam@gmail.com'
 
   def welcome_email(user)
-    puts "%%%%%%%%%%%%%%%%%% welcome email is working"
     @user = user
-    puts @user
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     @url  = 'localhost:3000'
-    puts @url
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     mail(to: @user.email, subject: 'Welcome to BrainTrade')
-    puts @user.email
-    puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     #attachments.inline['braintrade_logo.png'] = File.read(Rails.root.join("/app/assets/images/braintrade_logo.png"))
-    
   end
+
+  def contact_teacher(meetup)
+    @meetup = meetup
+    #learner is current_user
+    @learner = meetup.learner
+    #get teacher from id in route
+    @teacher = meetup.offering.teacher
+    @learner_profile_link = "http://braintrade.herokuapp.com#{user_path(@learner)}"
+    @meetup_link = "http://braintrade.herokuapp.com#{edit_meetup_path(@meetup)}"
+
+    mail(to: @teacher.email, subject: 'Someone wants to learn from you')
+  end
+
+
 
 end
 
