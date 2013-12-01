@@ -17,7 +17,16 @@ class MeetupsController < ApplicationController
 
   def create
     #creates a new meetup entry in table using learner and offering
+    @meetup = Meetup.create(offering_id: params[:"data-offering_id"] , learner_id: current_user.id, method: 'hangout', )    
+    # puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+    # puts @meetup.inspect
+    # puts "wheeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    # puts params.inspect
+    # puts "%%%%%%%%%%%%%%%"
+
     #generates an email to the teacher containing a link to edit
+    UserMailer.contact_teacher(@meetup).deliver
+    redirect_to meetup_path(@meetup)    
   end
 
   def edit
