@@ -18,6 +18,7 @@ class MeetupsController < ApplicationController
   end
 
   def edit
+    @meetup = Meetup.find(params[:id])
     #multiple possible views depending on what step in process
 
     #if meetup.accepted is false or nil (step 1)
