@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
 
   def index
     #my account information
@@ -8,13 +9,22 @@ class UsersController < ApplicationController
   def create
     #create account
     @user = User.create(params[:user])
-    if @user.valid?
-      session[:user_id] = @user.id
-      redirect_to users_path
-    else
-       flash[:error] = @user.errors.full_messages
-       render :new
-    end
+    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$user controller"
+    puts @user
+    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+    #respond_to do |format|
+      if @user.valid?
+        session[:user_id] = @user.id
+        UserMailer.welcome_email(@user).deliver
+        #format.json { render json: @user, status: :created, location: @user }
+        redirect_to users_path
+        #format.html { redirect_to(@user, notice: 'User was successfully created.') }
+        
+      else
+         flash[:error] = @user.errors.full_messages
+         render :new
+      end
+     #end
   end
 
   def new
