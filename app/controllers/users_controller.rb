@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
 
-  # We can probably delete the index?
-  # def index
-  #   #my account information
-  #  @user = User.find(session[:user_id])
-  # end
+  def index
+   @users = User.all
+  end
 
   def create
     #create account
@@ -49,10 +47,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
   end
 
   def destroy
+    User.destroy(session[:user_id])
+    flash[:success] = "Your info has been deleted!"
+    session[:user_id] = nil
+    redirect_to(new_user_path)
   end
 
 end
