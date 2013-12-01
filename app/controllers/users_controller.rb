@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         UserMailer.welcome_email(@user).deliver
         #format.json { render json: @user, status: :created, location: @user }
-        redirect_to users_path
+        redirect_to user_path(@user)
         #format.html { redirect_to(@user, notice: 'User was successfully created.') }
       else
          flash[:error] = @user.errors.full_messages
