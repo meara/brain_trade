@@ -20,7 +20,7 @@ feature "navbar links work" do
     fill_in "user_password", :with => "test_person_password"
     fill_in "user_password_confirmation", :with => "test_person_password"
     click_button "Create User"
-    current_path.should == users_path
+    current_path.should == 'users/1'
     
     click_link "Logout"               # click logout
     current_path.should == root_path    # verify link
@@ -30,7 +30,7 @@ feature "navbar links work" do
     fill_in "login_email", :with => "test_person@mail.com"
     fill_in "login_password", :with => "test_person_password"
     click_button "login_user"
-    current_path.should == users_path    # verify link
+    current_path.should == 'users/1'    # verify link
   end
 
 end
