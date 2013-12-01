@@ -1,6 +1,9 @@
+
+
 class MeetupsController < ApplicationController
 
   def show
+    @meetup = Meetup.find(params[:id])
     #details of agreed-upon meetup
     #include a link to cancel meetup, links to edit
   end
@@ -27,6 +30,7 @@ class MeetupsController < ApplicationController
   end
 
   def edit
+    @meetup = Meetup.find(params[:id])
     #multiple possible views depending on what step in process
 
     #if meetup.accepted is false or nil (step 1)
@@ -48,6 +52,16 @@ class MeetupsController < ApplicationController
   end
 
   def update
+    p params[:meetup]["time1(1i)"].to_i
+    time1 = Time.new(params[:meetup]["time1(1i)"].to_i, params[:meetup]["time1(2i)"].to_i, params[:meetup]["time1(3i)"].to_i, params[:meetup]["time1(4i)"].to_i, params[:meetup]["time1(5i)"].to_i)
+    time2 = Time.new(params[:meetup]["time2(1i)"].to_i, params[:meetup]["time2(2i)"].to_i, params[:meetup]["time2(3i)"].to_i, params[:meetup]["time2(4i)"].to_i, params[:meetup]["time2(5i)"].to_i)
+    time3 = Time.new(params[:meetup]["time3(1i)"].to_i, params[:meetup]["time3(2i)"].to_i, params[:meetup]["time3(3i)"].to_i, params[:meetup]["time3(4i)"].to_i, params[:meetup]["time3(5i)"].to_i)
+    @meetup = Meetup.find(params[:id])
+    @meetup.update(time1: time1, time2: time2, time3: time3)
+    redirect_to(meetup_path(@meetup.id))
+    # p Time.new(params[:time2][:1i], params[:time2][:2i], params[:time2][:3i], params[:time2][:4i], params[:time2][:5i])
+    # p Time.new(params[:time3][:1i], params[:time3][:2i], params[:time3][:3i], params[:time3][:4i], params[:time3][:5i])
+
     #if coming from step 1
       #update accepted field with true or false
       #if accepted, update dt_opts
