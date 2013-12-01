@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ApplicationHelper
 
   def index
    @users = User.all
@@ -7,13 +8,18 @@ class UsersController < ApplicationController
   def create
     #create account
     @user = User.create(params[:user])
-    if @user.valid?
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
-    else
-       flash[:error] = @user.errors.full_messages
-       render :new
-    end
+    #respond_to do |format|
+      if @user.valid?
+        session[:user_id] = @user.id
+        UserMailer.welcome_email(@user).deliver
+        #format.json { render json: @user, status: :created, location: @user }
+        redirect_to users_path
+        #format.html { redirect_to(@user, notice: 'User was successfully created.') }
+      else
+         flash[:error] = @user.errors.full_messages
+         render :new
+      end
+     #end
   end
 
   def new
@@ -33,11 +39,7 @@ class UsersController < ApplicationController
   def update
     #update profile
     @user = User.find(session[:user_id])
-    # puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    # puts @user
-    #  puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     if @user.update_attributes(params[:user])
-        # puts "****************************************"
         flash[:success] = "Your info has been updated!"
         redirect_to users_path(@user)
     else
