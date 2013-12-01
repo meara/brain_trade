@@ -2,16 +2,12 @@ class UsersController < ApplicationController
   include ApplicationHelper
 
   def index
-    #my account information
-   @user = User.find(session[:user_id])
+   @users = User.all
   end
 
   def create
     #create account
     @user = User.create(params[:user])
-    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$user controller"
-    puts @user
-    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     #respond_to do |format|
       if @user.valid?
         session[:user_id] = @user.id
@@ -19,7 +15,6 @@ class UsersController < ApplicationController
         #format.json { render json: @user, status: :created, location: @user }
         redirect_to users_path
         #format.html { redirect_to(@user, notice: 'User was successfully created.') }
-        
       else
          flash[:error] = @user.errors.full_messages
          render :new
@@ -44,11 +39,7 @@ class UsersController < ApplicationController
   def update
     #update profile
     @user = User.find(session[:user_id])
-    # puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    # puts @user
-    #  puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     if @user.update_attributes(params[:user])
-        # puts "****************************************"
         flash[:success] = "Your info has been updated!"
         redirect_to users_path(@user)
     else
@@ -58,10 +49,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    #profile page (things to teach and learn)
-     #@user = current_user
+    @user = User.find(params[:id])
   end
+
   def destroy
+    User.destroy(session[:user_id])
+    flash[:success] = "Your info has been deleted!"
+    session[:user_id] = nil
+    redirect_to(new_user_path)
   end
 
 end
