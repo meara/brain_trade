@@ -11,26 +11,27 @@ feature "navbar links work" do
 
   #SIGN UP, LOGOUT, LOGIN
   scenario "sign up, logout, login" do
+    @user = FactoryGirl.build(:user)
+    p @user
     visit root_path                        # visit page where sessions are in session
     click_link "Sign Up or Login"
     current_path.should == new_user_path
-    fill_in "user_first_name", :with => "Elaine"
-    fill_in "user_last_name", :with => "Yu"
-    fill_in "user_email", :with => "test_person@mail.com"
-    fill_in "user_password", :with => "test_person_password"
-    fill_in "user_password_confirmation", :with => "test_person_password"
+    fill_in "user_first_name", :with => @user.first_name
+    fill_in "user_last_name", :with => @user.last_name
+    fill_in "user_email", :with => @user.email
+    fill_in "user_password", :with => @user.password
+    fill_in "user_password_confirmation", :with => @user.password_confirmation
     click_button "Create User"
-    current_path.should == 'users/1'
-    
+    page.should have_content(@user.first_name)
     click_link "Logout"               # click logout
     current_path.should == root_path    # verify link
     
     click_link "Login"            #click login
     current_path.should == new_user_path
-    fill_in "login_email", :with => "test_person@mail.com"
-    fill_in "login_password", :with => "test_person_password"
+    fill_in "login_email", :with => @user.email
+    fill_in "login_password", :with => @user.password
     click_button "login_user"
-    current_path.should == 'users/1'    # verify link
+    page.should have_content(@user.first_name)    # verify link
   end
 
 end
