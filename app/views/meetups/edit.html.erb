@@ -1,2 +1,13 @@
 <h1>Teach?</h1>
 
+<%= form_for @meetup, url: {action: "update"} do |f| %>
+<h3>Please pick 3 times to teach</h3>
+<%= f.label :option_one %>
+<%= f.datetime_select(:time1) %><br/><br/>
+<%= f.label :option_two %>
+<%= f.datetime_select(:time2) %><br/><br/>
+<%= f.label :option_three %>
+<%= f.datetime_select(:time3) %><br/><br/>
+<%= f.submit "Accept Teaching" %>
+<% end %>
+<button><a href="">Reject Teaching</a></button><br/><br/>
