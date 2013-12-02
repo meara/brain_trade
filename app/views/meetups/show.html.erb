@@ -1,3 +1,33 @@
+<% if session[:user_id] == @meetup.offering.teacher.id %>
+	<% if @meetup.accepted == true %>
+		<% if @meetup.date_time != nil %>
+			<h3><%= @meetup.offering.teacher.first_name %>, your time has been accepted!</h3>
+			<h3>Please meet <%=@meetup.learner.first_name %> at <%= @meetup.date_time %></h3>
+			<% else %>
+		<h3>You have given your choice of times!  Please be patint while <%= @meetup.learner.first_name %> chooses a time.</h3>
+		<% end %>
+	<% else %>
+	<h1> <%= @meetup.offering.teacher.first_name %>, <%= @meetup.learner.first_name %> is looking for times for you to teach <%= @meetup.offering.subject.name %>.</h1>
+	<% end %>
+<% end %>
+<% if session[:user_id] == @meetup.learner.id %>	
+	<h1> <%= @meetup.learner.first_name %>, you have chosen to learn <%= @meetup.offering.subject.name %> from <%= @meetup.offering.teacher.first_name %></h1>
+	<% if @meetup.accepted == true %>
+		<h3>You have accepted a time!  You are good to go!</h3>
+		<h3>Please meet <%= @meetup.offering.teacher.first_name %> at <%= @meetup.date_time %></h3>
+	<% elsif @meetup.cancelled == true %>
+			<h3>This meetup has been cancelled</h3>
+			<button><a href="/users/<%= @meetup.learner.id %>">Back to your profile page</a></button>
+	<% else %>
+			<h3>Please be patient while <%= @meetup.offering.teacher.first_name %> gathers some times for you to choose from.</h3>
+	<% end %>
 
-<h1><%= @meetup.time1 %></h1>
+<% end %>
+<h3>if you would like to cancel the meetup, please click the button below.</h3>
+<%= form_for @meetup, url: {action: "update"} do |f| %>
+<%= f.hidden_field :cancelled, value: true %>
+<%= f.hidden_field :step, value: 3 %>
+<%= f.submit "Cancel Meetup", :confirm => "Are you sure you want to cancel?"%>
+<% end %>
+
 
