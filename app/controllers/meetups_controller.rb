@@ -25,7 +25,7 @@ class MeetupsController < ApplicationController
     #creates a new meetup entry in table using learner and offering
     @user = User.find(session[:user_id])
     if @user.credit > 0
-    @meetup = Meetup.create(offering_id: params[:"data-offering_id"] , learner_id: current_user.id, method: 'hangout', ) 
+    @meetup = Meetup.create(offering_id: params[:"data-offering_id"] , learner_id: current_user.id, method: params[:"data-method"]) 
     flash[:success] = "You have been signed up for this course!"  
     @user.credit -= 1 
     @user.save
