@@ -32,6 +32,8 @@ class MeetupsController < ApplicationController
   def edit
     @meetup = Meetup.find(params[:id])
     #multiple possible views depending on what step in process
+    @times = [@meetup.time1, @meetup.time2, @meetup.time3]
+    # @select << @meetup.time1, @meetup.time2, @meetup.time3 
 
     #if meetup.accepted is false or nil (step 1)
       #form is for teacher
@@ -52,7 +54,6 @@ class MeetupsController < ApplicationController
   end
 
   def update
-    p params[:meetup]["time1(1i)"].to_i
     time1 = Time.new(params[:meetup]["time1(1i)"].to_i, params[:meetup]["time1(2i)"].to_i, params[:meetup]["time1(3i)"].to_i, params[:meetup]["time1(4i)"].to_i, params[:meetup]["time1(5i)"].to_i)
     time2 = Time.new(params[:meetup]["time2(1i)"].to_i, params[:meetup]["time2(2i)"].to_i, params[:meetup]["time2(3i)"].to_i, params[:meetup]["time2(4i)"].to_i, params[:meetup]["time2(5i)"].to_i)
     time3 = Time.new(params[:meetup]["time3(1i)"].to_i, params[:meetup]["time3(2i)"].to_i, params[:meetup]["time3(3i)"].to_i, params[:meetup]["time3(4i)"].to_i, params[:meetup]["time3(5i)"].to_i)
@@ -70,6 +71,8 @@ class MeetupsController < ApplicationController
       #update datetime field with chosen date OR update cancelled to true
       #if date chosen, generate confirmation email to both teacher and learner
       #if meetup is cancelled, generate email to both saying cancelled
+
+
     #if cancelling after the fact
       #generate email to both saying cancelled with message
   end

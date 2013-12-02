@@ -1,6 +1,6 @@
 <h1><%= User.find(Offering.find(@meetup.offering_id).teacher_id).first_name %> you have offered to teach <%= Subject.find(Offering.find(@meetup.offering_id)).name %> to <%= User.find(@meetup.learner_id).first_name %></h1>
 
-<%= form_for @meetup, url: {action: "update"} do |f| %>
+<%= form_for @meetup do |f| %>
 <h3>Please pick 3 times to teach</h3>
 <%= f.label :option_one %>
 <%= f.datetime_select(:time1) %><br/><br/>
@@ -8,6 +8,19 @@
 <%= f.datetime_select(:time2, {:class => 'date-select'}) %><br/><br/>
 <%= f.label :option_three %>
 <%= f.datetime_select(:time3) %><br/><br/>
-<%= f.submit "Accept Teaching" %>
+<%= f.submit "Send Availability to Student" %>
 <% end %>
 <button><a href="/users/<%= User.find(Offering.find(@meetup.offering_id).teacher_id).id %>">Reject Teaching</a></button><br/><br/>
+
+<%= form_for(@meetup) do |f| %>
+<h3>Please select one of these dates</h3>
+<%= f.collection_select :date_time, @times, :to_s, :to_s %>
+<%#= f.hidden_field :step, :value => "1" %>
+<%= f.submit "Enter Time" %>
+<% end %>
+
+
+
+
+
+
