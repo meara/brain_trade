@@ -2,6 +2,13 @@ class MeetupsController < ApplicationController
 
   def show
     @meetup = Meetup.find(params[:id])
+    t_id = @meetup.offering.teacher_id
+    l_id = @meetup.learner_id
+    if !(current_user.id == t_id || current_user.id == l_id)
+      flash[:error] = 'You do not have permission to view that page.'
+      redirect_to root_path
+    end
+
     #details of agreed-upon meetup
     #include a link to cancel meetup, links to edit
   end
