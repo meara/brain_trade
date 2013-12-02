@@ -1,0 +1,24 @@
+<h3>My teaching requests</h3>
+
+<h4>Awaiting my response</h4>
+  <ul>
+    <% awaiting_teacher_response_as_teacher.each do |meetup| %>
+      <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.learner.first_name}", edit_meetup_path(meetup) %></il>
+    <% end %>
+  </ul>
+
+<h4>Awaiting student response</h4>
+  <ul>
+    <% awaiting_student_response_as_teacher.each do |meetup| %>
+      <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.learner.first_name}", meetup_path(meetup) %></il>
+    <% end %>
+  </ul>
+
+<h4>Confirmed</h4>
+
+  <ul>
+    <% confirmed_as_teacher.each do |meetup| %>
+      <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.learner.first_name}", meetup_path(meetup) %></il>
+    <% end %>
+  </ul>
+

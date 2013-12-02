@@ -1,4 +1,3 @@
-
 class MeetupsController < ApplicationController
 
   def show
@@ -8,20 +7,16 @@ class MeetupsController < ApplicationController
   end
 
   def new
+    @meetup = Meetup.find(params[:id])
+  end
     #served when learner clicks button to learn topic from teacher
     #has a form where learner can write a message that will be sent in email
     #if hangout or in person are both possible, user picks one
     #submit button calls create
-  end
 
   def create
     #creates a new meetup entry in table using learner and offering
-    @meetup = Meetup.create(offering_id: params[:"data-offering_id"] , learner_id: current_user.id, method: 'hangout')    
-    # puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    # puts @meetup.inspect
-    # puts "wheeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-    # puts params.inspect
-    # puts "%%%%%%%%%%%%%%%"
+    @meetup = Meetup.create(offering_id: params[:"data-offering_id"], learner_id: current_user.id, method: 'hangout')
 
     #generates an email to the teacher containing a link to edit
     UserMailer.contact_teacher(@meetup).deliver
@@ -107,7 +102,7 @@ class MeetupsController < ApplicationController
     #if cancelling after the fact
       #generate email to both saying cancelled with message
   end
-
+  
 
   private
 
