@@ -66,16 +66,14 @@ class MeetupsController < ApplicationController
       @meetup.update(time1: time1, time2: time2, time3: time3, accepted: true)
       #send an email to learner with time options
       UserMailer.learner_accepted(@meetup).deliver
-      redirect_to(meetup_path(@meetup.id))
-    elsif params[:meetup][:step] == '1'
+      redirect_to(meetup_path(@meetup))
+    end
+    if params[:meetup][:step] == '1' && params[:meetup][:accepted] == 'false'
       @meetup = Meetup.find(params[:id])
       @meetup.update(accepted: false)
       #send email to learner with :(
       UserMailer.learner_rejected(@meetup).deliver
       redirect_to user_path(@meetup.offering.teacher)
-    else
-      flash[:notice] = "Sorry, something went wrong.  Please attempt your request again."
-      redirect_to root_path
     end
     # p Time.new(params[:time2][:1i], params[:time2][:2i], params[:time2][:3i], params[:time2][:4i], params[:time2][:5i])
     # p Time.new(params[:time3][:1i], params[:time3][:2i], params[:time3][:3i], params[:time3][:4i], params[:time3][:5i])
@@ -84,10 +82,17 @@ class MeetupsController < ApplicationController
       #update accepted field with true or false
       #if accepted, update dt_opts
       #generate email to learner with link to edit if accepted or :( if rejected
+
     #if coming from step 2
       #update datetime field with chosen date OR update cancelled to true
       #if date chosen, generate confirmation email to both teacher and learner
       #if meetup is cancelled, generate email to both saying cancelled
+
+    if params[:meetup][:step] == '2'
+      @meetup = Meetup.find(params[:id])
+      @meetup.update(date_time: params[:meetup][:date_time] )
+      redirect_to(meetup_path(@meetup))
+    end
 
 
     #if cancelling after the fact
