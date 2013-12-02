@@ -42,6 +42,27 @@ class UserMailer < ActionMailer::Base
     mail(to: @learner.email, subject: 'Your learning request')
   end
 
+  def teacher_meetup_confirmation(meetup)
+    @meetup = meetup
+
+    @learner = meetup.learner
+    #get teacher from id in route
+    @teacher = meetup.offering.teacher
+    @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
+
+    mail(to: @teacher.email, subject: 'Your meetup is confirmed!')
+  end
+
+    def learner_meetup_confirmation(meetup)
+    @meetup = meetup
+
+    @learner = meetup.learner
+    #get teacher from id in route
+    @teacher = meetup.offering.teacher
+    @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
+
+    mail(to: @learner.email, subject: 'Your meetup is confirmed!')
+  end
 
 
 end
