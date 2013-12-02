@@ -1,4 +1,4 @@
-module TeacherMeetups
+module TeacherMeetupsHelper
 	def all_meetups_as_teacher
 		Meetup.includes(:offering).where('offerings.teacher_id = ?', teacher.id(@teacher)).references(:offerings).all 
 	end

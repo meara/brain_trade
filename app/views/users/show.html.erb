@@ -19,12 +19,17 @@
     <li><%= link_to offering.subject.name, offering_path(offering) %></li>
   <% end %></ul>
 
-  <br><br>
+  <br>
 
-  <h3>Pending requests to learn from me...</h3>
-    
-    
-    <% if @user.id == session[:user_id] %>
+    <% if @user.id == current_user.id %>
+      
+      <%= render "teacher_meetup_list" %>
+
+      
+      <%= render "student_meetup_list" %>  
+
+    <br>  
+        
     <div class="edit_button"><%= link_to "New Offering", new_offering_path %></div><br>
     <div class="edit_button"><%= link_to "Edit", edit_user_path(current_user),:remote => true %></div><br>
       <div class="edit_button"><%= link_to "Delete User", "/users/delete", :method => :delete, :confirm => "are you sure you want to delete your profile?" %></div><br>
