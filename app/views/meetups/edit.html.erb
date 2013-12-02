@@ -1,0 +1,14 @@
+<% if @teacher.id == current_user.id && @meetup.time1 == nil %>
+ <%= render "teacher_edit"  %>
+<%end%>
+
+
+<%if @learner.id == current_user.id && @meetup.time1 == nil && @meetup.date_time == nil%>
+<p><%= @teacher.first_name %> is still reviewing your request!  They should get back to you soon.</p>
+<%end%>
+
+
+<%if @learner.id == current_user.id && @meetup.time1 != nil && @meetup.date_time == nil%>
+ <%= render "learner_edit"  %>
+<%end%>
+

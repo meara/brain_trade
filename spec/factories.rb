@@ -1,11 +1,13 @@
 require 'factory_girl_rails'
-	
+require 'spec_helper'
+
 FactoryGirl.define do 
 	factory :user do 
 		first_name "Clark"
 		last_name "Kent"
 		email "superman@mail.com"
 		password "password"
+    password_confirmation "password"
 	end
 
 	factory :rating do 
@@ -34,7 +36,8 @@ FactoryGirl.define do
 		category_id 1
 	end
 
-	factory :category do 
+
+	factory :categories do 
 		name "programming languages" 
 	end
 end
