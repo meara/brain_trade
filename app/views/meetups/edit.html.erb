@@ -1,3 +1,5 @@
+<% if session[:user_id] == @teacher.id %>
+
 <h1><%= @teacher.first_name %>, <%= @learner.first_name %> wants to learn <%= @subject.name %> from you!</h1>
 
 <br>
@@ -23,10 +25,13 @@
 <%= f.submit "Decline Request" %>
 <% end %>
 
-
+<% elsif session[:user_id] == @learner.id %>
+<h3> <%= @learner.first_name %> please accept one of the 3 times provided by <%= @teacher.first_name %> to Trade Brains</h3>
 <%= form_for @meetup,  url: {action: "update"} do |f| %>
 <h3>Please select one of these dates</h3>
 <%= f.collection_select :date_time, @times, :to_s, :to_s %>
 <%= f.hidden_field :step, :value => 2 %>
 <%= f.submit "Select Time" %>
+<% end %>
+
 <% end %>

@@ -96,6 +96,14 @@ class MeetupsController < ApplicationController
       redirect_to(meetup_path(@meetup))
     end
 
+    if params[:meetup][:step] == '3'
+      @meetup = Meetup.find(params[:id])
+      @meetup.update(cancelled: params[:meetup][:cancelled] )
+      UserMailer.learner_meetup_confirmation(@meetup).deliver
+      UserMailer.teacher_meetup_confirmation(@meetup).deliver
+      redirect_to(meetup_edit_path(@meetup))
+    end
+
 
     #if cancelling after the fact
       #generate email to both saying cancelled with message
