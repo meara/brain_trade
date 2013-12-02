@@ -91,6 +91,8 @@ class MeetupsController < ApplicationController
     if params[:meetup][:step] == '2'
       @meetup = Meetup.find(params[:id])
       @meetup.update(date_time: params[:meetup][:date_time] )
+      UserMailer.learner_meetup_confirmation(@meetup).deliver
+      UserMailer.teacher_meetup_confirmation(@meetup).deliver
       redirect_to(meetup_path(@meetup))
     end
 
