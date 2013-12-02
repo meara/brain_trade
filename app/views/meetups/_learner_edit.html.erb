@@ -1,0 +1,6 @@
+<%= form_for @meetup,  url: {action: "update"} do |f| %>
+<h3>Please select one of these dates</h3>
+<%= f.collection_select :date_time, @times, :to_s, :to_s %>
+<%= f.hidden_field :step, :value => 2 %>
+<%= f.submit "Select Time" %>
+<% end %>
