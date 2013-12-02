@@ -20,6 +20,28 @@ class UserMailer < ActionMailer::Base
     mail(to: @teacher.email, subject: 'Someone wants to learn from you')
   end
 
+  def learner_accepted(meetup)
+    @meetup = meetup
+    #learner is current_user
+    @learner = meetup.learner
+    #get teacher from id in route
+    @teacher = meetup.offering.teacher
+    @meetup_link = "http://braintrade.herokuapp.com#{edit_meetup_path(@meetup)}"
+
+    mail(to: @learner.email, subject: 'Your learning request')
+  end
+
+  def learner_rejected(meetup)
+    @meetup = meetup
+    #learner is current_user
+    @learner = meetup.learner
+    #get teacher from id in route
+    @teacher = meetup.offering.teacher
+    @learn_link = "http://braintrade.herokuapp.com/categories"
+
+    mail(to: @learner.email, subject: 'Your learning request')
+  end
+
 
 
 end

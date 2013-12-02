@@ -1,16 +1,30 @@
-<h1><%= User.find(Offering.find(@meetup.offering_id).teacher_id).first_name %> you have offered to teach <%= Subject.find(Offering.find(@meetup.offering_id)).name %> to <%= User.find(@meetup.learner_id).first_name %></h1>
+<h1><%= @teacher.first_name %>, <%= @learner.first_name %> wants to learn <%= @subject.name %> from you!</h1>
 
-<%= form_for @meetup do |f| %>
-<h3>Please pick 3 times to teach</h3>
+<br>
+
+<h4>If you would like to accept <%= @learner.first_name %>'s request, please select three times you are available to teach.  (<%= @learner.first_name %> will select one.)</h4>
+
+<%= form_for @meetup, url: {action: "update"} do |f| %>
 <%= f.label :option_one %>
 <%= f.datetime_select(:time1) %><br/><br/>
 <%= f.label :option_two %>
 <%= f.datetime_select(:time2, {:class => 'date-select'}) %><br/><br/>
 <%= f.label :option_three %>
 <%= f.datetime_select(:time3) %><br/><br/>
-<%= f.submit "Send Availability to Student" %>
+<%= f.hidden_field :accepted, value: true %>
+<%= f.hidden_field :step, value: 1 %>
+<%= f.submit "Accept Request" %>
 <% end %>
-<button><a href="/users/<%= User.find(Offering.find(@meetup.offering_id).teacher_id).id %>">Reject Teaching</a></button><br/><br/>
+
+<h4>If you'd like to decline <%= @learner.first_name %>'s request, please click the button below: </h4>
+
+<%= form_for @meetup, url: {action: "update"} do |f| %>
+<%= f.hidden_field :accepted, value: false %>
+<%= f.hidden_field :step, value: 1 %>
+<%= f.submit "Decline Request" %>
+<% end %>
+
+
 
 <%= form_for(@meetup) do |f| %>
 <h3>Please select one of these dates</h3>
@@ -18,9 +32,3 @@
 <%#= f.hidden_field :step, :value => "1" %>
 <%= f.submit "Enter Time" %>
 <% end %>
-
-
-
-
-
-

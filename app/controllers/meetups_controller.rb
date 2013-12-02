@@ -31,6 +31,9 @@ class MeetupsController < ApplicationController
 
   def edit
     @meetup = Meetup.find(params[:id])
+    @learner = @meetup.learner
+    @teacher = @meetup.offering.teacher
+    @subject = @meetup.offering.subject
     #multiple possible views depending on what step in process
     @times = [@meetup.time1, @meetup.time2, @meetup.time3]
     # @select << @meetup.time1, @meetup.time2, @meetup.time3 
@@ -54,12 +57,26 @@ class MeetupsController < ApplicationController
   end
 
   def update
-    time1 = Time.new(params[:meetup]["time1(1i)"].to_i, params[:meetup]["time1(2i)"].to_i, params[:meetup]["time1(3i)"].to_i, params[:meetup]["time1(4i)"].to_i, params[:meetup]["time1(5i)"].to_i)
-    time2 = Time.new(params[:meetup]["time2(1i)"].to_i, params[:meetup]["time2(2i)"].to_i, params[:meetup]["time2(3i)"].to_i, params[:meetup]["time2(4i)"].to_i, params[:meetup]["time2(5i)"].to_i)
-    time3 = Time.new(params[:meetup]["time3(1i)"].to_i, params[:meetup]["time3(2i)"].to_i, params[:meetup]["time3(3i)"].to_i, params[:meetup]["time3(4i)"].to_i, params[:meetup]["time3(5i)"].to_i)
-    @meetup = Meetup.find(params[:id])
-    @meetup.update(time1: time1, time2: time2, time3: time3)
-    redirect_to(meetup_path(@meetup.id))
+    # p params[:meetup]["time1(1i)"].to_i
+    if params[:meetup][:step] == '1' && params[:meetup][:accepted] == 'true'
+      time1 = Time.new(params[:meetup]["time1(1i)"].to_i, params[:meetup]["time1(2i)"].to_i, params[:meetup]["time1(3i)"].to_i, params[:meetup]["time1(4i)"].to_i, params[:meetup]["time1(5i)"].to_i)
+      time2 = Time.new(params[:meetup]["time2(1i)"].to_i, params[:meetup]["time2(2i)"].to_i, params[:meetup]["time2(3i)"].to_i, params[:meetup]["time2(4i)"].to_i, params[:meetup]["time2(5i)"].to_i)
+      time3 = Time.new(params[:meetup]["time3(1i)"].to_i, params[:meetup]["time3(2i)"].to_i, params[:meetup]["time3(3i)"].to_i, params[:meetup]["time3(4i)"].to_i, params[:meetup]["time3(5i)"].to_i)
+      @meetup = Meetup.find(params[:id])
+      @meetup.update(time1: time1, time2: time2, time3: time3, accepted: true)
+      #send an email to learner with time options
+      UserMailer.learner_accepted(@meetup).deliver
+      redirect_to(meetup_path(@meetup.id))
+    elsif params[:meetup][:step] == '1'
+      @meetup = Meetup.find(params[:id])
+      @meetup.update(accepted: false)
+      #send email to learner with :(
+      UserMailer.learner_rejected(@meetup).deliver
+      redirect_to user_path(@meetup.offering.teacher)
+    else
+      flash[:notice] = "Sorry, something went wrong.  Please attempt your request again."
+      redirect_to root_path
+    end
     # p Time.new(params[:time2][:1i], params[:time2][:2i], params[:time2][:3i], params[:time2][:4i], params[:time2][:5i])
     # p Time.new(params[:time3][:1i], params[:time3][:2i], params[:time3][:3i], params[:time3][:4i], params[:time3][:5i])
 
