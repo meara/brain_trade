@@ -16,9 +16,28 @@
 //= require turbolinks
 //= require_tree .
 
-
+// AJAX edit button
 $(function() {
-  $("a[data-remote=true]").on("ajax:success", function(event, data) {
-    $("a[data-remote=true]").replaceWith(data);
+  $(document).on("ajax:success", ".edit_button a[data-remote=true]", function(event, data) {
+    $(".edit_button a[data-remote=true]").replaceWith(data);
   });
+
+// AJAX categories
+
+  // // Upon clicking a category, if there's an ajax request
+  $(document).on("ajax:success","a[data-remote=true].categories", function(event, data) {
+    $(this).after(data);
+  });
+
+
+  // $(".categories a:first-child").on("click", function(event) {
+  //   event.preventDefault();
+  //   // console.log(event);
+  //   var url = $(this).attr("href");
+  //   // console.log(url);
+  //   $.get(url, function(response) {
+  //     console.log(response);
+  //     $(response).appendTo(".categories a:first-child");
+  //   });
+  // });
 });
