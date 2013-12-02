@@ -1,6 +1,3 @@
-require 'factory_girl_rails'
-require 'spec_helper'
-
 FactoryGirl.define do 
 	factory :user do 
 		first_name "Clark"
@@ -35,6 +32,7 @@ FactoryGirl.define do
 		name "Ruby"
 		category_id 1
 	end
+
 
 	factory :categories do 
 		name "programming languages" 
