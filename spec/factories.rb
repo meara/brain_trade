@@ -1,6 +1,3 @@
-require 'factory_girl_rails'
-require 'spec_helper'
-
 FactoryGirl.define do 
 	factory :user do 
 		first_name "Clark"

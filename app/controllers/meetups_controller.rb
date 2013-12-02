@@ -1,5 +1,3 @@
-
-
 class MeetupsController < ApplicationController
 
   def show
@@ -15,7 +13,6 @@ class MeetupsController < ApplicationController
     #has a form where learner can write a message that will be sent in email
     #if hangout or in person are both possible, user picks one
     #submit button calls create
-  end
 
   def create
     #creates a new meetup entry in table using learner and offering
