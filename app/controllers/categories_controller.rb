@@ -7,6 +7,9 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find_by_id(params[:id])
     @subjects = @category.subjects.all
+    if request.xhr?
+        render :show, layout: false
+    end 
   end
 
 end
