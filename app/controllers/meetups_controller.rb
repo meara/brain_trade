@@ -24,7 +24,7 @@ class MeetupsController < ApplicationController
     # puts @meetup.inspect
     # puts "wheeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
     # puts params.inspect
-    # puts "%%%%%%%%%%%%%%%"
+    # puts "%%%%%%%%%%%%%%%" 
 
     #generates an email to the teacher containing a link to edit
     UserMailer.contact_teacher(@meetup).deliver

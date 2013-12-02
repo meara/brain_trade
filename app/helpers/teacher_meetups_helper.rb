@@ -15,9 +15,9 @@ module TeacherMeetups
 			if meetup.accepted != true 
 				not_accepted << meetup 
 			end 
-		end
-		not_accepted
-	end
+		end 
+		not_accepted 
+	end 
 
 
 	def awaiting_student_response_as_teacher 
@@ -25,10 +25,10 @@ module TeacherMeetups
 		all_meetups_as_teacher.each do |meetup|
 			if meetup.accepted && meetup.date_time == nil 
 				not_confirmed << meetup 
-			end
-		end
+			end 
+		end 
 		not_confirmed 
-	end
+	end 
 
 	def confirmed_as_teacher 
 		confirmed = []
@@ -66,11 +66,11 @@ module TeacherMeetups
 		all_meetups_as_student do |meetup|
 			if meetup.accepted && meetup.date_time 
 				confirmed << meetup 
-			end
-		end
-		confirmed 
-	end
-end
+			end 
+		end 
+		confirmed  
+	end 
+end 
 
 
 

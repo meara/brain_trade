@@ -22,10 +22,7 @@
   <br><br>
 
   <h3>Pending requests to learn from me...</h3>
-  
-  <ul><% @pending_meetup.each do |meetup| %>
-    <li><%=   
-  
+    
     
     <% if @user.id == session[:user_id] %>
     <div class="edit_button"><%= link_to "New Offering", new_offering_path %></div><br>
