@@ -17,7 +17,15 @@ class MeetupsController < ApplicationController
 
   def create
     #creates a new meetup entry in table using learner and offering
-    @meetup = Meetup.create(offering_id: params[:"data-offering_id"] , learner_id: current_user.id, method: 'hangout', )    
+    @user = User.find(session[:user_id])
+    if @user.credit > 0
+    @meetup = Meetup.create(offering_id: params[:"data-offering_id"] , learner_id: current_user.id, method: 'hangout', ) 
+    flash[:success] = "You have been signed up for this course!"  
+    @user.credit -= 1 
+    @user.save
+    # @user_teacher = User.find(@meetup.offering.teacher_id)
+    # @user_teacher.credit += 1
+    # @user_teacher.save
     # puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     # puts @meetup.inspect
     # puts "wheeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
@@ -26,7 +34,11 @@ class MeetupsController < ApplicationController
 
     #generates an email to the teacher containing a link to edit
     UserMailer.contact_teacher(@meetup).deliver
-    redirect_to meetup_path(@meetup)    
+    redirect_to meetup_path(@meetup)  
+    else 
+       flash[:error] = "You do not have enough credits to sign up for this course."
+       redirect_to user_path(@user) 
+    end 
   end
 
   def edit
@@ -72,6 +84,9 @@ class MeetupsController < ApplicationController
       @meetup = Meetup.find(params[:id])
       @meetup.update(accepted: false)
       #send email to learner with :(
+      @user_learner = User.find(@meetup.learner)
+      @user_learner.credit += 1
+      @user_learner.save
       UserMailer.learner_rejected(@meetup).deliver
       redirect_to user_path(@meetup.offering.teacher)
     end
@@ -91,6 +106,9 @@ class MeetupsController < ApplicationController
     if params[:meetup][:step] == '2'
       @meetup = Meetup.find(params[:id])
       @meetup.update(date_time: params[:meetup][:date_time] )
+      @user_teacher = User.find(@meetup.offering.teacher_id)
+      @user_teacher.credit += 1
+      @user_teacher.save
       UserMailer.learner_meetup_confirmation(@meetup).deliver
       UserMailer.teacher_meetup_confirmation(@meetup).deliver
       redirect_to(meetup_path(@meetup))
@@ -99,9 +117,16 @@ class MeetupsController < ApplicationController
     if params[:meetup][:step] == '3'
       @meetup = Meetup.find(params[:id])
       @meetup.update(cancelled: params[:meetup][:cancelled] )
+      @user_learner = User.find(@meetup.learner)
+      @user_learner.credit += 1
+      @user_learner.save
+      @user_teacher = User.find(@meetup.offering.teacher_id)
+      @user_teacher.credit -= 1
+      @user_teacher.save
       UserMailer.learner_meetup_confirmation(@meetup).deliver
       UserMailer.teacher_meetup_confirmation(@meetup).deliver
-      redirect_to(meetup_edit_path(@meetup))
+      flash[:success] = "You have cancelled your meetup with #{@meetup.offering.teacher.first_name}"
+      redirect_to(user_path(session[:user_id]))
     end
 
 
