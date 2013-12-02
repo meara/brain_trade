@@ -25,9 +25,21 @@
 
 
 <% if @offering.teacher_id == session[:user_id] %>
-<div class="edit_button"><%= link_to "Edit Offering", edit_offering_path %></div><br>
+
+  <div class="edit_button"><%= link_to "Edit Offering", edit_offering_path %></div><br>
+  
 <% else %>
-	<%= button_to "Learn #{@offering.subject.name} from #{@offering.teacher.first_name}", controller: 'meetups', action: "create", :"data-offering_id" => @offering.id %>
+
+  <%= "Learn #{@offering.subject.name} from #{@offering.teacher.first_name}" %>
+
+	<% if @offering.hangout %>
+    <%= button_to "Via Google Hangouts", controller: 'meetups', action: "create", :"data-offering_id" => @offering.id, :"data-method" => 'hangout' %>
+  <% end %>
+
+  <% if @offering.location != '' %>
+    <%= button_to "In Person", controller: 'meetups', action: "create", :"data-offering_id" => @offering.id, :"data-method" => 'in-person' %>
+  <% end %>
+
 <% end %>
 
 
