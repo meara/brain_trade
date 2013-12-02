@@ -1,0 +1,32 @@
+<h1><%= @teacher.first_name %>, <%= @learner.first_name %> wants to learn <%= @subject.name %> from you!</h1>
+
+<br>
+
+<%= form_for @meetup, url: {action: "update"} do |f| %>
+<h4>If you would like to accept <%= @learner.first_name %>'s request, please select three times you are available to teach.  (<%= @learner.first_name %> will select one.)</h4>
+<%= f.label :option_one %>
+<%= f.datetime_select(:time1) %><br/><br/>
+<%= f.label :option_two %>
+<%= f.datetime_select(:time2, {:class => 'date-select'}) %><br/><br/>
+<%= f.label :option_three %>
+<%= f.datetime_select(:time3) %><br/><br/>
+<%= f.hidden_field :accepted, value: true %>
+<%= f.hidden_field :step, value: 1 %>
+<%= f.submit "Accept Request" %>
+<% end %>
+
+<h4>If you'd like to decline <%= @learner.first_name %>'s request, please click the button below: </h4>
+
+<%= form_for @meetup, url: {action: "update"} do |f| %>
+<%= f.hidden_field :accepted, value: false %>
+<%= f.hidden_field :step, value: 1 %>
+<%= f.submit "Decline Request" %>
+<% end %>
+
+
+<%= form_for @meetup,  url: {action: "update"} do |f| %>
+<h3>Please select one of these dates</h3>
+<%= f.collection_select :date_time, @times, :to_s, :to_s %>
+<%= f.hidden_field :step, :value => 2 %>
+<%= f.submit "Select Time" %>
+<% end %>

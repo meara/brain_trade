@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         #format.html { redirect_to(@user, notice: 'User was successfully created.') }
       else
          flash[:error] = @user.errors.full_messages
-         render :new
+         redirect_to new_user_path
       end
      #end
   end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     if @user.update_attributes(params[:user])
         flash[:success] = "Your info has been updated!"
-        redirect_to users_path(@user)
+        redirect_to user_path(@user)
     else
         flash[:error] = "Your info has had a problem updating. Try again"
         render :edit
