@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     #respond_to do |format|
       if @user.valid?
         session[:user_id] = @user.id
+        @user.credit += 1
+        @user.save
+        flash[:success] = "By Joining BrainTrade you have earned one free credit toward learing."
         UserMailer.welcome_email(@user).deliver
         #format.json { render json: @user, status: :created, location: @user }
         redirect_to user_path(@user)

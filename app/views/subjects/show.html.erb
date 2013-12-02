@@ -2,6 +2,6 @@
 
 <% @offerings.each do |offering| %>
   <ul class="list-group">
-    <li class="list-group-item"><a href="/offerings/<%=offering.id%>"><%= @subject.name %> by <%= User.find_by_id(offering.teacher_id).first_name %></a></li>
+    <li class="list-group-item"><a href="/offerings/<%=offering.id%>"><%= @subject.name %> by <%= offering.teacher.first_name %></a></li>
   </ul>
 <% end %>
