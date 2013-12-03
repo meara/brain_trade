@@ -3,14 +3,14 @@ class OAuthUser
 	attr_reader :provider, :user
 
 	def initialize creds, user = nil
-		p @auth = creds
+		@auth = creds
 		@user = user
 		@provider = @auth.provider
 		@policy = "#{@provider}_policy".classify.constantize.new(@auth)
 	end
 
 	def login_or_create
-    logged_in? ? create_new_account : (login || create_new_account)
+    logged_in? ? login : create_new_account
   end
 
   def logged_in?
@@ -30,12 +30,8 @@ class OAuthUser
     end
   end
 
-  def refresh_tokens
-    @account.update_attributes(
-      :oauth_token   => @policy.oauth_token,
-      :oauth_expires => @policy.oauth_expires,
-      :oauth_secret  => @policy.oauth_secret
-    )
+  def account_already_exists?
+    @user.accounts.exists?(provider: @provider, uid: @policy.uid)
   end
 
   def create_new_account
@@ -50,13 +46,10 @@ class OAuthUser
         :oauth_secret  => @policy.oauth_secret,
         :username      => @policy.username
       )
-
+      @user.credit += 1
+      @user.save
       @policy.create_callback(@account)
     end
-  end
-
-  def account_already_exists?
-    @user.accounts.exists?(provider: @provider, uid: @policy.uid)
   end
 
   def create_new_user
@@ -67,6 +60,18 @@ class OAuthUser
       # ,:picture    => image
     )
   end
+
+  def refresh_tokens
+    @account.update_attributes(
+      :oauth_token   => @policy.oauth_token,
+      :oauth_expires => @policy.oauth_expires,
+      :oauth_secret  => @policy.oauth_secret
+    )
+  end
+
+  
+
+  
 
   # def image
   #   image = open(URI.parse(@policy.image_url), :ssl_verify_mode => OpenSSL::SSL::VERIFY_NONE)
