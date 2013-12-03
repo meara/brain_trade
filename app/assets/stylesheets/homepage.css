@@ -43,3 +43,16 @@
 div {
 display: block;
 }
+
+.icon-star {
+  color: gold;
+}
+
+.btn {
+  color: black;
+  float:center;
+}
+
+#credits {
+  
+}
