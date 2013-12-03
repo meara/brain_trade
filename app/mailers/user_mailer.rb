@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url  = 'localhost:3000'
+    @url  = 'http://braintrade.herokuapp.com'
     mail(to: @user.email, subject: 'Welcome to BrainTrade')
     #attachments.inline['braintrade_logo.png'] = File.read(Rails.root.join("/app/assets/images/braintrade_logo.png"))
   end
@@ -22,9 +22,7 @@ class UserMailer < ActionMailer::Base
 
   def learner_accepted(meetup)
     @meetup = meetup
-    #learner is current_user
     @learner = meetup.learner
-    #get teacher from id in route
     @teacher = meetup.offering.teacher
     @meetup_link = "http://braintrade.herokuapp.com#{edit_meetup_path(@meetup)}"
 
@@ -33,9 +31,7 @@ class UserMailer < ActionMailer::Base
 
   def learner_rejected(meetup)
     @meetup = meetup
-    #learner is current_user
     @learner = meetup.learner
-    #get teacher from id in route
     @teacher = meetup.offering.teacher
     @learn_link = "http://braintrade.herokuapp.com/categories"
 
@@ -46,7 +42,6 @@ class UserMailer < ActionMailer::Base
     @meetup = meetup
 
     @learner = meetup.learner
-    #get teacher from id in route
     @teacher = meetup.offering.teacher
     @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
     @learner_profile_link = "http://braintrade.herokuapp.com#{user_path(@learner)}"
@@ -59,7 +54,6 @@ class UserMailer < ActionMailer::Base
     @meetup = meetup
 
     @learner = meetup.learner
-    #get teacher from id in route
     @teacher = meetup.offering.teacher
     @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
 
