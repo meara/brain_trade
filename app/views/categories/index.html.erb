@@ -1,9 +1,10 @@
-<h1>Browse Learning Topics By Category:</h1>
+<h1>Browse Learning Topic Categories</h1>
+<br>
 
 <div class ="wrapper">
 <% @categories.each do |category| %>
   <ul class="well well-small">
-    <a> <span class="badge badge-info"><%= category.subjects.all.count %></span>&nbsp&nbsp<%= link_to category.name, category_path(category.id), :remote => true, :class => "categories" %></a>
+    <a> <span class="badge badge-info"><%= category.subjects.all.count %></span>&nbsp&nbsp<%= link_to category.name, category_path(category.id), :class => "categories" %></a>
     
   </ul>
 <% end %>
