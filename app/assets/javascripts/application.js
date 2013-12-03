@@ -35,11 +35,28 @@ $(function() {
   //   event.stopPropagation();
   // });
 
-   $(document).on("ajax:success","a[data-remote=true].subjects", function(event, data) {
-    event.preventDefault();
-   $('#hide').toggle('slow');
-    $(this).after(data);
-        event.preventDefault();
+   $(document).on("click", "a[data-remote=true].subjects", function(event) {
+      var link = $(this).attr("href")
+      var id = link.charAt(link.length - 1)
+      console.log(link)
+      console.log(id)
+      // console.log(event);
+      // console.log(data);
+      // console.log($(this.id));
+      // var id = $('.hide').prop('id');
+      // var num = $('.hide').class.substr(5);
+
+      // var hideid = this.id
+
+      // console.log(num);
+
+      // console.log(event);
+      // console.log(data);
+      // $(this).after(data);
+
+      $('.hide'+ id).toggle('slow');
+     // $('.hide[id]:first-child').toggle('slow');
+      // console.log("hidden");
   });
 
 
