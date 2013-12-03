@@ -1,0 +1,25 @@
+.learn_from {
+  text-align: center;
+}
+.expertise_description {
+  background-color: tomato;
+  border-radius: 8px;
+  margin: 10px auto;
+  width: 800px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+
+}
+
+.expertise_details {
+  border-radius: 2px;
+  margin: 20px auto;
+  width: 700px;
+  padding: 20px 30px 20px 30px;
+  background-color: white;
+}
+
+.meetup_place {
+  margin: 20px auto;
+  width: 800px;
+}

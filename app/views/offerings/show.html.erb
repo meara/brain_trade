@@ -1,17 +1,19 @@
-<h1> Learn <%= @offering.subject.name %> from <%= @offering.teacher.first_name %> </h1>
+<h1 class="learn_from"> Learn <%= @offering.subject.name %> from <%= @offering.teacher.first_name %> <img class="img-circle"<%= gravatar_for @offering.teacher %></h1>
 
-<% if @offering.hangout %>
-  <h4>Available via Google hangouts</h4>
-<% end %>
+<div class="meetup_place">
+  <% if @offering.hangout %>
+    <h4> <i class="icon-facetime-video"></i>  Available via Google hangouts</h4>
+  <% end %>
 
-<% if @offering.location != '' %>
-  <h4>Available in person at: <%= @offering.location %></h4>
-<% end %>
+  <% if @offering.location != '' %>
+    <h4><i class="icon-map-marker"></i>  Available in person at: <%= @offering.location %></h4>
+  <% end %>
 
-<h3>Description of my <%= @offering.subject.name %> expertise...</h3>
-
-<div><%= @offering.details %></div>
-
+  <div class="expertise_description">
+    <h3> Expertise description of <%= @offering.subject.name %></h3>
+    <div class="expertise_details"><%= @offering.details %></div>
+  </div>
+<div>
 
 <!-- <h3>Rankings would go here</h3>
 <h3>Show up rate would go here</h3>

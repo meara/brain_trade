@@ -14,16 +14,16 @@
     clear: left;
   }  /* separate the list from subsequent markup */
 
-/*.wrapper {
+.wrapper {
 
   overflow: hidden;
-}*/
-/*.wrapper ul
+}
+.wrapper ul
   {
     float: left;
-    width: 40%;
+    width: 30%;
     margin-bottom: 1em;
-  }*/
+  }
 
 .list-group{
   border-style:none;
@@ -38,7 +38,6 @@
 .list-group-item {
   list-style-type: none;
 }
-
 
 
 .list-group-item img.gravatar{
