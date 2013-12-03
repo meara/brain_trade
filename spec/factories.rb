@@ -1,4 +1,14 @@
 FactoryGirl.define do 
+  # CODE REVIEW: I prefer to fill in factories with Faker data. I'd write the
+  # user factory as such (personally)
+  # factory :user do 
+  #   first_name Faker::Name.first_name
+  #   last_name Faker::Name.last_name
+  #   email { Faker::Internet.email("#{first_name} #{last_name}") }
+  #   password "password"
+  #   password_confirmation "password"
+  # end
+  # This will result in mostly random users, with emails that match""
 	factory :user do 
 		first_name "Clark"
 		last_name "Kent"
@@ -7,6 +17,13 @@ FactoryGirl.define do
     password_confirmation "password"
 	end
 
+  # CODE REVIEW: Factory that depends on other "models" (Factories)
+  # factory :rating do 
+  #   score 1 
+  #   review "You're the bee's knees"
+  #   association :meetup
+  #   association :learner, factory: :user
+  # end
 	factory :rating do 
 		score 1 
 		review "You're the bee's knees"

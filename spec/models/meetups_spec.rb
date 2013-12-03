@@ -1,6 +1,11 @@
+# CODE REVIEW: non-idiomatic filename
 require 'spec_helper'
 require 'date'
 
+# CODE REVIEW: coverage report is 100%, but there are things in your model not
+# tested here. I don't really love these tests either. What are they testing?
+# How would this be helpful to you if you were looking at them for the first
+# time?
 describe Meetup do
   let(:meetup) { meetup = Meetup.new(offering_id: 1, learner_id: 1, method: "hello", date_time: DateTime.now) }
 

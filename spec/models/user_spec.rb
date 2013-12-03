@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+# CODE REVIEW: coverage report is 100%, but there are TONS of things in your
+# model not tested here. I don't really love these tests either. What are they
+# testing? How would this be helpful to you if you were looking at them for 
+# the first time?
 describe User do 
   let(:user) { user = User.new(first_name: "Connor", 
                                last_name: "McCrone", 
