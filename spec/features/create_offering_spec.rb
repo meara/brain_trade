@@ -2,16 +2,16 @@ require 'spec_helper'
 
 feature "A user should be able to create a new offering" do
 	scenario "when signed in" do
-		user = FactoryGirl.build(:user)
+		user = FactoryGirl.build(:regular_user)
 		visit root_path
     click_link "Sign Up or Login"
     current_path.should == new_user_path
   	
-  	fill_in "user_first_name", :with => user.first_name
-    fill_in "user_last_name", :with => user.last_name
-    fill_in "user_email", :with => user.email
-    fill_in "user_password", :with => user.password
-    fill_in "user_password_confirmation", :with => user.password_confirmation
+  	fill_in "regular_user[first_name]", :with => user.first_name
+    fill_in "regular_user[last_name]", :with => user.last_name
+    fill_in "regular_user[email]", :with => user.email
+    fill_in "regular_user[password]", :with => user.password
+    fill_in "regular_user[password_confirmation]", :with => user.password_confirmation
     click_button "Create User"
 
     category = FactoryGirl.create(:category)

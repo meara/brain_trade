@@ -5,7 +5,7 @@ describe UserMailer do
   let(:meetup) {FactoryGirl.create(:meetup)}
 
   describe 'welcome email' do
-    let(:user) {FactoryGirl.build(:user)}
+    let(:user) {FactoryGirl.build(:regular_user)}
     let(:email) {UserMailer.welcome_email(user)}
     it 'renders the subject' do
       email.subject.should == 'Welcome to BrainTrade'
