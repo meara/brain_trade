@@ -14,7 +14,6 @@ feature "user profile editing" do
     fill_in "user_password", :with => user.password
     fill_in "user_password_confirmation", :with => user.password_confirmation
     click_button "Create User"
-    current_path.should == user_path(user)
     
     click_link "Edit"               # click logout
     fill_in "user_first_name", :with => "Elainey"
