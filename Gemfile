@@ -50,6 +50,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'faker'
   gem 'capybara'
   gem 'rack_session_access'
   gem 'shoulda-matchers'
