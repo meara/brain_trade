@@ -1,15 +1,23 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
+  before_filter :authenticate_user!, only: [:edit, :update]
+
+
+  def new
+    #Account creation form
+    @user = RegularUser.new
+  end
+
   def index
    @users = User.all
   end
 
   def create
     #create account
-    @user = User.create(params[:user])
+    @user = RegularUser.new(params[:regular_user])
     #respond_to do |format|
-      if @user.valid?
+      if @user.save
         session[:user_id] = @user.id
         @user.credit += 1
         @user.save
@@ -23,11 +31,6 @@ class UsersController < ApplicationController
          redirect_to new_user_path
       end
      #end
-  end
-
-  def new
-    #Account creation form
-    @user = User.new
   end
 
   def edit
@@ -52,7 +55,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def destroy

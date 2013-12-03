@@ -1,5 +1,5 @@
 <div class="container">
-        <%= form_for(@user) do |user| %>
+        <%= form_for @user, :url => (@user.new_record? ? users_path : user_path(@user)) do |user| %>
             <h1>Create Account</h1>
 
                 <!-- validations -->
