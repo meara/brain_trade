@@ -34,17 +34,19 @@ module UsersHelper
       end
     end
     not_confirmed
-  end 
+  end
 
-  def confirmed_as_teacher 
+  def confirmed_as_teacher  
     confirmed = []
     all_meetups_as_teacher.each do |meetup|
-      if meetup.accepted && meetup.date_time
+      if meetup.accepted && meetup.date_time?
         confirmed << meetup
       end
     end
     confirmed
   end
+
+
 
   #As the student user profile...
   def awaiting_teacher_response_as_student
@@ -70,12 +72,12 @@ module UsersHelper
   def confirmed_as_student  
     confirmed = []
     all_meetups_as_student.each do |meetup|
-      if meetup.accepted
-        confirmed << meetup && meetup.date_time
-      end 
-    end 
-    confirmed  
-  end 
+      if meetup.accepted && meetup.date_time?
+        confirmed << meetup
+      end
+    end
+    confirmed
+  end  
 
 
 end

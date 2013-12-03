@@ -2,6 +2,13 @@ class MeetupsController < ApplicationController
 
   def show
     @meetup = Meetup.find(params[:id])
+    t_id = @meetup.offering.teacher_id
+    l_id = @meetup.learner_id
+    if !(current_user.id == t_id || current_user.id == l_id)
+      flash[:error] = 'You do not have permission to view that page.'
+      redirect_to root_path
+    end
+
     #details of agreed-upon meetup
     #include a link to cancel meetup, links to edit
   end
@@ -18,7 +25,7 @@ class MeetupsController < ApplicationController
     #creates a new meetup entry in table using learner and offering
     @user = User.find(session[:user_id])
     if @user.credit > 0
-    @meetup = Meetup.create(offering_id: params[:"data-offering_id"] , learner_id: current_user.id, method: 'hangout', ) 
+    @meetup = Meetup.create(offering_id: params[:"data-offering_id"] , learner_id: current_user.id, method: params[:"data-method"]) 
     flash[:success] = "You have been signed up for this course!"  
     @user.credit -= 1 
     @user.save

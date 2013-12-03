@@ -8,6 +8,7 @@
   <div id="credits" class="btn btn-large" href="#"><i class="icon-star"></i> Credits: <%= @user.credit  %></div><br><br>
   </div>
 
+
   <div><ul class="profile_info_container">
   <li><label id="profile_info"> First name: </label><%= @user.first_name %></li><br>
   <li><label id="profile_info"> Last name: </label><%= @user.last_name %></li><br>
@@ -18,6 +19,9 @@
   <br id="clear">
 
   <div class="thigs_i_teach"><h3>Things I can teach...</h3>
+
+
+  <h3>Things I can teach...</h3>
   <ul><% @user.offerings.each do |offering| %>
     <li><%= link_to offering.subject.name, offering_path(offering) %></li>
   <% end %></ul>

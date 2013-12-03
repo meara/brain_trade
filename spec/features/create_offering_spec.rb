@@ -14,9 +14,11 @@ feature "A user should be able to create a new offering" do
     fill_in "user_password_confirmation", :with => user.password_confirmation 
     click_button "Create User" 
 
+    category = FactoryGirl.create(:category)
 		click_link 'New Offering' 
-		current_path.should == new_offering_path 
-		fill_in "offering_subject", :with => "ruby" 
+		current_path.should == new_offering_path
+    select 'Programming', from: 'offering_category'
+		fill_in "offering_subject", :with => "Ruby" 
 		check 'offering_hangout' 
 		fill_in 'offering_location', :with => "starbucks" 
 		click_button 'Create' 

@@ -4,8 +4,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Congratulations <%= @teacher.first_name %>! </h1>
-    <p>You're meeting up with <%= @learner.first_name %> to talk about <%= @meetup.offering.subject.name%> at <%= @meetup.date_time %>.</p>
+    <h3>Congratulations <%= @teacher.first_name %>! </h3>
+    <p>You're meeting up with <%= link_to @learner.first_name, @learner_profile_link %> to talk about <%= @meetup.offering.subject.name%> at <%= @meetup.date_time %>.</p>
      
      <p>To see your meetup details, click this link: <%= @meetup_confirmation_link %></p>
 

@@ -1,0 +1,64 @@
+  /* allow room for 3 columns */
+/*  ul
+  {
+    width: 30em;
+  }*/  /* float & allow room for the widest item */
+ /* .ul a
+  {
+    float: left;
+    width: 10em;
+  } */ /* stop the float */
+  
+  br
+  {
+    clear: left;
+  }  /* separate the list from subsequent markup */
+
+.wrapper {
+
+  overflow: hidden;
+}
+.wrapper ul
+  {
+    float: left;
+    width: 30%;
+    margin-bottom: 1em;
+  }
+
+.list-group{
+  border-style:none;
+  border-width:1px;
+  border-radius: 5px;
+  width:80%;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #CCFFCC;
+}
+.list-group-item {
+  list-style-type: none;
+}
+
+
+.list-group-item img.gravatar{
+  width: 35px;
+  height: 35px;
+
+}
+.subjects {
+  padding-top: 10px;
+}
+
+.list-group ul{
+  background-color:  #99FFFF;
+}
+.list-group ul:hover{
+  background-color: #FFFF99;
+}
+
+a:hover{
+  text-decoration: none;
+  color: tomato;
+}
+
+

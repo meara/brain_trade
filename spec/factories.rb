@@ -17,7 +17,7 @@ FactoryGirl.define do
 	factory :meetup do 
 		offering_id 1
 		learner_id 1
-		method "google hangout"
+		method "hangout"
 		datetime Time.now
 	end
 
@@ -28,15 +28,15 @@ FactoryGirl.define do
 		location "krypton"
 	end
 
+	factory :category do 
+		name "Programming" 
+	end
+
 	factory :subject do 
 		name "Ruby"
 		category_id 1
 	end
 
-
-	factory :category do 
-		name "programming languages" 
-	end
 end
 
 
