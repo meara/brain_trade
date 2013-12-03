@@ -1,10 +1,22 @@
-.featurette-image.pull-left  {
-  max-width: 35%;
+.featurette-image.pull-center  {
+  max-width: 30%;
   float:left;
-  padding-right: 10px;
+  padding-right: 50px;
   
 }
-
+.featurette-image.pull-left  {
+  max-width: 40%;
+  float:left;
+  padding-right: 50px;
+  
+}
+.featurette-image.pull-left  {
+  
+  max-width: 30%;
+  float:left;
+  padding-left: 50px;
+  
+}
 .team {
   text-align: center;
   font-size:  300%;
