@@ -9,6 +9,10 @@
     width: 10em;
   } */ /* stop the float */
   
+  .hide{
+    display:none;
+  }
+  
   br
   {
     clear: left;
