@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
-  before_filter :authenticate_user!, only: [:edit, :update]
+  #before_filter :authenticate_user!, only: [:edit, :update]
 
 
   def new
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
   def update
     #update profile
-    @user = User.find(session[:user_id])
+    @user = RegularUser.find(session[:user_id])
     if @user.update_attributes(params[:user])
         flash[:success] = "Your info has been updated!"
         redirect_to user_path(@user)

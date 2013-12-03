@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe User do 
-  let(:user) { user = User.new(first_name: "Connor", 
+  let(:user) { user = RegularUser.new(first_name: "Connor", 
                                last_name: "McCrone", 
                                email: "con@mail.com", 
                                password: "password", 
