@@ -1,7 +1,7 @@
 <div class="subjects">
   <% @subjects.each do |subject| %>
     <ul class="list-group">
-      <li><%= link_to subject.name, subject_path(subject.id) %></li>
+      <a><%= link_to subject.name, subject_path(subject.id),:remote => true, :class => "subjects" %></a>
     </ul>
   <% end %>
 </div>

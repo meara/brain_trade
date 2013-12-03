@@ -25,8 +25,26 @@ $(function() {
 // AJAX categories
 
   // // Upon clicking a category, if there's an ajax request
+  // var flip = 0;
+
   $(document).on("ajax:success","a[data-remote=true].categories", function(event, data) {
+    event.preventDefault;
+    console.log(data);
+    console.log(event);
+    event.stopPropagation();
+    // $(".well").toggle( flip++ % 1 === 0 );
     $(this).after(data);
+    event.stopPropagation();
+  });
+
+   $(document).on("ajax:success","a[data-remote=true].subjects", function(event, data) {
+    
+    console.log(data);
+    console.log(event);
+    event.stopPropagation();
+    // $(".well").toggle( flip++ % 1 === 0 );
+    $(this).after(data);
+    event.stopPropagation();
   });
 
 

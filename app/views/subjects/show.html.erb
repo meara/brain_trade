@@ -1,7 +1,10 @@
-<h1><%= @subject.name %></h1>
-
+<!-- <h1><%#= @subject.name %></h1>
+ -->
+ <div class ="wrapper">
 <% @offerings.each do |offering| %>
   <ul class="list-group">
-    <li class="list-group-item"><a href="/offerings/<%=offering.id%>"><%= @subject.name %> by <%= offering.teacher.first_name %></a></li>
+    <li class="list-group-item"><a href="/offerings/<%=offering.id%>"> <img> <%= gravatar_for offering.teacher %></img> &nbsp<%= offering.teacher.first_name %></a></li>
   </ul>
 <% end %>
+<br>
+</div>
