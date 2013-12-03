@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/mailers/user_mailer.rb": [
+      "/Users/apprentice/Desktop/brain_trade/app/mailers/user_mailer.rb": [
         1,
         1,
         null,
@@ -53,6 +53,8 @@
         null,
         0,
         0,
+        0,
+        null,
         null,
         0,
         null,
@@ -75,22 +77,14 @@
         null,
         null
       ],
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/models/category.rb": [
+      "/Users/apprentice/Desktop/brain_trade/app/models/category.rb": [
         1,
         1,
         null,
         1,
         null
       ],
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/models/subject.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        null
-      ],
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/models/meetup.rb": [
+      "/Users/apprentice/Desktop/brain_trade/app/models/subject.rb": [
         1,
         1,
         1,
@@ -98,7 +92,15 @@
         1,
         null
       ],
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/models/offering.rb": [
+      "/Users/apprentice/Desktop/brain_trade/app/models/meetup.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/brain_trade/app/models/offering.rb": [
         1,
         1,
         1,
@@ -112,7 +114,7 @@
         null,
         null
       ],
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/models/user.rb": [
+      "/Users/apprentice/Desktop/brain_trade/app/models/user.rb": [
         1,
         null,
         null,
@@ -134,7 +136,7 @@
         null,
         null
       ],
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/controllers/sessions_controller.rb": [
+      "/Users/apprentice/Desktop/brain_trade/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -163,7 +165,7 @@
         null,
         null
       ],
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/controllers/application_controller.rb": [
+      "/Users/apprentice/Desktop/brain_trade/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -172,7 +174,7 @@
         1,
         null,
         1,
-        0,
+        1,
         null,
         null,
         null,
@@ -184,7 +186,7 @@
         null,
         null
       ],
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/controllers/users_controller.rb": [
+      "/Users/apprentice/Desktop/brain_trade/app/controllers/users_controller.rb": [
         1,
         1,
         null,
@@ -251,7 +253,7 @@
         null,
         null
       ],
-      "/Users/Connor/Desktop/Final_project/brain_trade/app/controllers/offerings_controller.rb": [
+      "/Users/apprentice/Desktop/brain_trade/app/controllers/offerings_controller.rb": [
         1,
         null,
         1,
@@ -259,35 +261,35 @@
         null,
         null,
         1,
-        0,
-        null,
-        null,
-        1,
-        1,
-        1,
         1,
         null,
         null,
         1,
         1,
         1,
+        2,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
         0,
-        0,
         null,
         null,
         null,
         null,
         null,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         null,
         null,
         null,
         null,
-        0,
-        0,
+        1,
+        1,
         null,
         0,
         0,
@@ -327,6 +329,6 @@
         null
       ]
     },
-    "timestamp": 1386032076
+    "timestamp": 1386083321
   }
 }
