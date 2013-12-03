@@ -4,10 +4,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @learner.first_name %> is interested in learning from you at BrainTrade, <%= @teacher.first_name %>!</h1>
-     <p>
-      To see <%= @learner.first_name %>'s profile, just follow this link: <%= @learner_profile_link %>.
-    </p>
+    <h3><%= link_to @learner.first_name, @learner_profile_link %> is interested in learning from you at BrainTrade, <%= @teacher.first_name %>!</h3>
+
     <p> Please accept or decline this learning request by visiting this link: <%= @meetup_link %></p>
 
     <%#= image_tag attachments['braintrade_logo.png'].url %>

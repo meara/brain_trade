@@ -49,6 +49,8 @@ class UserMailer < ActionMailer::Base
     #get teacher from id in route
     @teacher = meetup.offering.teacher
     @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
+    @learner_profile_link = "http://braintrade.herokuapp.com#{user_path(@learner)}"
+
 
     mail(to: @teacher.email, subject: 'Your meetup is confirmed!')
   end
