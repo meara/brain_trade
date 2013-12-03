@@ -1,25 +1,22 @@
-<div class="container">
 
-	<% provide(:title, @user.first_name) %>
-	<h1>
-		<%= gravatar_for @user %>
-		<%= @user.first_name %>
-	</h1>
+  <div class="picture_container">
+  <% provide(:title, @user.first_name) %>
+  <h1><%= gravatar_for @user %></h1>
+  <div class="profile_name"><h1><%= @user.first_name %></h1></div>
+  </div>
 
-  <h3 id="profile_info">Your profile information </h3>
-
-   <label id="profile_info"> Credits: </label><%= @user.credit  %><br><br>
-  <label id="profile_info"> First name: </label><%= @user.first_name  %><br><br>
-  <label id="profile_info"> Last name: </label><%= @user.last_name  %><br><br>
-  <label id="profile_info"> Email: </label><%= @user.email  %><br><br>
-
-  <label id="profile_info"> Bio </label><%= @user.bio %><br><br>
+  <div id="credits" class="btn btn-large" href="#"><i class="icon-star"></i> Credits: <%= @user.credit  %></div><br><br>
+  <nav class="profile_info_container">
+  <label id="profile_info"> First name: </label><%= @user.first_name %><br><br>
+  <label id="profile_info"> Last name: </label><%= @user.last_name %><br><br>
+  <label id="profile_info"> Email: </label><%= @user.email %><br><br>
+  <label id="profile_info"> Bio </label><%= @user.bio %>
+  </nav>
 
   <h3>Things I can teach...</h3>
   <ul><% @user.offerings.each do |offering| %>
     <li><%= link_to offering.subject.name, offering_path(offering) %></li>
   <% end %></ul>
-
   <br><br>
 
   <% if @user.id == current_user.id %>
@@ -29,5 +26,5 @@
     <div class="edit_button"><%= link_to "Edit", edit_user_path(current_user),:remote => true %></div><br>
       <div class="edit_button"><%= link_to "Delete User", "/users/delete", :method => :delete, :confirm => "are you sure you want to delete your profile?" %></div><br>
   <% end %>
-</div>
-</div>
+<!-- </div> -->
+<!-- </div> -->

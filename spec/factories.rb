@@ -34,7 +34,7 @@ FactoryGirl.define do
 	end
 
 
-	factory :categories do 
+	factory :category do 
 		name "programming languages" 
 	end
 end
