@@ -1,6 +1,5 @@
-<!-- <h1><%#= @subject.name %></h1>
- -->
- <div id="hide">
+
+<div id="hide">
 <% @offerings.each do |offering| %>
   <ul class="list-group" >
     <li class="list-group-item"><a href="/offerings/<%=offering.id%>"> <img> <%= gravatar_for offering.teacher %></img> &nbsp<%= offering.teacher.first_name %></a></li>
