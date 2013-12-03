@@ -1,6 +1,6 @@
 .featurette-image.pull-left  {
   max-width: 35%;
-  float:left;
+  float: left;
   padding-right: 10px;
   
 }
@@ -41,6 +41,42 @@ display: block;
   float:center;
 }
 
-#credits {
+.profile_info_container { 
+  font-size: 11pt;  
+  font-family: 'PT Sans', Arial, sans-serif;  
+  font-weight: bold; 
+  display: inline; 
+  float: right;
+  height: 300px;
+  /*background-color: orange;*/
+  width:48%;
+}
+
+.picture_container {
+  /*background-color: green;*/
+  height: 300px;
+  width: 48%;
+  float: left;
   
+}
+
+.clear {
+  clear:both;
+}
+.thigs_i_teach {
+  /*background-color: yellow;*/
+  float: bottom;
+
+}
+
+nav li {
+  width: 50%;  
+  float: left;  
+  position: relative;  
+}
+
+
+
+#credits {
+
 }
