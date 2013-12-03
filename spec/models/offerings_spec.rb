@@ -1,5 +1,10 @@
+# CODE REVIEW: non-idiomatic filename
 require 'spec_helper'
 
+# CODE REVIEW: coverage report is 100%, but there are things in your model not
+# tested here. I don't really love these tests either. What are they testing?
+# How would this be helpful to you if you were looking at them for the first
+# time?
 describe Offering do
   let(:offering) { offering = Offering.new(subject_id: 1, teacher_id: 1, hangout: true, location: "home")}
 

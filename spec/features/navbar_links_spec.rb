@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+# CODE REVIEW: What feature are you testing with these integration tests? I
+# personally perceive no value in these tests.
 feature "navbar links work" do
 
   #HOME

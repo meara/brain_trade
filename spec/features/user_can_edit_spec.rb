@@ -1,5 +1,9 @@
 # require 'spec_helper'
 
+# CODE REVIEW: Make this work or delete it. You can always get code back that
+# has been checked in via git. There's no reason to leave commented code in
+# your app.
+
 # feature "user profile editing" do
 
 #   #Signup or Login

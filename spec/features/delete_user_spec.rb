@@ -19,6 +19,11 @@ feature "A user should be able to delete their account" do
 
 		expect(page).to have_text("Create Account") 
 		current_path.should == new_user_path
+    
+    # CODE REVIEW: What does it mean to have a user deleted? It might be worth
+    # confirming that a deleted user can't do things like login and a deleted
+    # user's creations are no longer accessible... if that's what deleting a 
+    # user means.
 	end 
 end 
 
