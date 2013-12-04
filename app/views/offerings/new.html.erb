@@ -46,18 +46,40 @@ More details: (Your background in this subject, etc.) -->
       #map-canvas { height: 100% }
     </style>
     <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiZSGVwbf2e0g9nsZx_smBCk27y7sHNs&sensor=true">    
-    </script>  
-    <script type="text/javascript">  
-      function initialize() {  
-        var mapOptions = {  
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJiZSGVwbf2e0g9nsZx_smBCk27y7sHNs&sensor=true"></script>
+
+//     <script src="/map.js"></script> 
+//     <script>
+
+//     google.maps.visualRefresh = true;
+
+//     var map;
+//     function initialize() {
+//       getCoordinates('1045 Mission street san francisco', function(coords) {
+//       var mapOptions = {
+//         zoom: 8,
+//         center: new google.maps.LatLng(coords[0], coords[1]),
+//         mapTypeId: google.maps.MapTypeId.ROADMAP
+//       };
+
+//       map = new google.map.Map(document.getElementById('map-canvas'), 
+//         mapOptions);  
+//   })
+
+// }
+
+// google.maps.event.addDomListener(window, 'load', initialize);
+
+    // <script type="text/javascript">  
+    //   function initialize() {  
+    //     var mapOptions = {  
+    //       center: new google.maps.LatLng(-34.397, 150.644),
+    //       zoom: 8
+    //     };
+    //     var map = new google.maps.Map(document.getElementById("map-canvas"),
+    //         mapOptions);
+    //   }
+      // google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>
