@@ -10,7 +10,7 @@
   <% end %>
 
   <div class="expertise_description">
-    <h3> Expertise description of <%= @offering.subject.name %></h3>
+    <h3> <%= @offering.teacher.first_name %>'s experience with <%= @offering.subject.name %>:</h3>
     <div class="expertise_details"><%= @offering.details %></div>
   </div>
 <div>
@@ -28,7 +28,7 @@
 
 <% if @offering.teacher_id == session[:user_id] %>
 
-  <div class="edit_button"><%= link_to "Edit Offering", edit_offering_path %></div><br>
+  <div class="edit_button btn btn-large btn-primary"><%= link_to "Edit Offering", edit_offering_path %></div><br>
   
 <% else %>
 
