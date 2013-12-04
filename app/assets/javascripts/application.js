@@ -58,8 +58,18 @@ $(function() {
      // $('.hide[id]:first-child').toggle('slow');
       // console.log("hidden");
   });
+  
+  $(document).on("submit", ".new_offering", function(event) {
 
-   $(document).on
+    console.log(event);
+    var data = $(this).serialize();
+    console.log(data);
+    
+  });
+
+
+
+
 
 
   // $(".categories a:first-child").on("click", function(event) {
