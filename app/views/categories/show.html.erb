@@ -1,4 +1,12 @@
 
+  <h1>Browse subjects in <%= @category.name %></h1>
+  <br>
+  <%= form_tag(category_path(@category.id), method: "get") do %>
+  <%= label_tag(:search, "") %>
+  <%= text_field_tag(:search, params[:search], :placeholder => "Search by keyword") %>
+  <%= submit_tag("Search", :name => nil, :class => "btn btn-primary search" ) %>
+<% end %>
+
   <div class="subjects_yay">
     <% @subjects.each do |subject| %>
       <ul class="well well-small">
