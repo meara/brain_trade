@@ -11,7 +11,7 @@
 <% @categories.each do |category| %>
   <ul class="well well-small">
     <a> <span class="badge badge-info"><%= category.subjects.all.count %></span>&nbsp&nbsp<%= link_to category.name, category_path(category.id), :class => "categories" %></a>
-    
+
   </ul>
 <% end %>
 <br>
