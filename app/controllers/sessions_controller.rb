@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :require_login
+  skip_before_action :warn_not_logged_in
+
   def index
     #HOMEPAGE
   end

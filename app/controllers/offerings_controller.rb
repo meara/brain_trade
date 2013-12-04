@@ -1,5 +1,8 @@
 class OfferingsController < ApplicationController
 
+  skip_before_action :require_login, except: [:create, :update]
+  skip_before_action :warn_not_logged_in, except: [:new, :edit]
+
   def index
     @offerings = Offering.all
   end
