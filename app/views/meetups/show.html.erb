@@ -21,7 +21,7 @@
 		  <h3>Your learning session will take place via Google Hangouts.</h3>
 		<% end %>
 		<% if @meetup.method == 'in-person' %>
-		  <h3>Your learning session will take place in person at <%= @meetup.location %>.</h3>
+		  <h3>Your learning session will take place in person at <%= @meetup.offering.location %>.</h3>
 		<% end %>
 	<% elsif @meetup.cancelled == true %>
 			<h3>This meetup has been cancelled.</h3>

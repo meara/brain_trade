@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def warn_not_logged_in
     unless current_user
-      flash[:error] = "You must be logged in prior to completing this action."
+      flash.now[:error] = "You must be logged in prior to completing this action."
     end
   end
  

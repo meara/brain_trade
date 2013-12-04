@@ -23,3 +23,7 @@
   margin: 20px auto;
   width: 800px;
 }
+
+.btn.btn-large.btn-primary a {
+color: white;
+}

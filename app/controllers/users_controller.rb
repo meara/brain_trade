@@ -10,9 +10,10 @@ class UsersController < ApplicationController
 
   def create
     #create account
-    @user = User.create(params[:user])
+    p params
+    @user = User.new(params[:user])
     #respond_to do |format|
-      if @user.valid?
+      if @user.save
         session[:user_id] = @user.id
         @user.credit += 1
         @user.save
