@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
+  skip_before_action :require_login, except: [:update]
+  skip_before_action :warn_not_logged_in
+
   def index
    @users = User.all
   end
