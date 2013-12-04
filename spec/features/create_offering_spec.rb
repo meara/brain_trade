@@ -15,7 +15,7 @@ feature "A user should be able to create a new offering" do
     click_button "Create User"
 
     category = FactoryGirl.create(:category)
-		click_link 'New Offering'
+		click_link 'Teach Something New!'
 		current_path.should == new_offering_path
     select 'Programming', from: 'offering_category'
 		fill_in "offering_subject", :with => "Ruby"
