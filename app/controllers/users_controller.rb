@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
+  skip_before_action :require_login, except: [:update]
+  skip_before_action :warn_not_logged_in
+
   def index
    @users = User.all
   end
@@ -14,7 +17,7 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         @user.credit += 1
         @user.save
-        flash[:success] = "By Joining BrainTrade you have earned one free credit toward learing."
+        flash[:success] = "By Joining BrainTrade you have earned one free credit toward learning."
         UserMailer.welcome_email(@user).deliver
         #format.json { render json: @user, status: :created, location: @user }
         redirect_to user_path(@user)
