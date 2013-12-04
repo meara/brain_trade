@@ -1,4 +1,16 @@
 
+
+.navbar .nav > li > a {
+  &.brand {
+    color: green;
+  }
+}
+
+.btn.btn-large.btn-primary {
+  color: white;
+}
+
+
 .featurette-image.pull-center  {
   max-width: 30%;
   float:left;
