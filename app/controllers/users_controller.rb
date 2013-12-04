@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     #create account
     p params
-    @user = User.new(first_name: params[:user][:first_name], last_name: params[:user][:last_name], email: params[:user][:email], password: params[:user][:password])
+    @user = User.new(params[:user])
     #respond_to do |format|
       if @user.save
         session[:user_id] = @user.id

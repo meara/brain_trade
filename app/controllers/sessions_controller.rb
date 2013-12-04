@@ -10,21 +10,19 @@ class SessionsController < ApplicationController
   def new
   end
 
+
   def create
+    #Login authenication
     @user = User.find_by_email(params[:email])
-    if @user == nil
-      flash[:error] = "The user you have entered does not exist"
-      redirect_to login_path
+    if @user && @user.authenticate(params[:password])
+       session[:user_id] = @user.id
+       redirect_to user_path(@user)
     else
-       if @user.password == params[:password]
-          session[:user_id] = @user.id
-          redirect_to user_path(@user)
-        else
-          flash[:error] = "Username or Password is incorrect"
-          redirect_to root_path
-        end
+       flash[:error] = ["Invalid email or password"]
+       redirect_to new_user_path
     end
   end
+
 
   def destroy
     session.clear
