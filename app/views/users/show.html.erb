@@ -46,7 +46,8 @@
        <br id="clear">
     <% end %>
 
-      <div class="edit_button"><%= link_to "Edit", edit_user_path(current_user),:remote => true %></div><br>
+      <div class="edit_button btn btn-medium btn-primary"><%= link_to "Edit", edit_user_path(current_user),:remote => true %></div><br>
+      <br>
       <%= link_to "Delete Your Account", "/users/delete", :method => :delete, :class => "btn btn-danger fa fa-trash-o fa-lg", :confirm => "are you sure you want to delete your profile?" %>
   
 
