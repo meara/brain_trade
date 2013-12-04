@@ -13,21 +13,14 @@
       <p id="profile_info"> First name: <%= @user.first_name %></p><br>
       <p id="profile_info"> Last name: <%= @user.last_name %></p><br>
       <p id="profile_info"> Email: <%= @user.email %></p><br>
-      <div class="popover right">
-          <div class="arrow"></div>
-            <h3 class="popover-title">Popover right</h3>
-            <div class="popover-content">
-              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-            </div>
-          </div>
+     
       Bio: <div id="bio_info"> <%= @user.bio %></div>
 
-<i class="fa fa-quote-left fa-2x pull-left fa-border"></i>
-Use a few styles together and you'll have easy pull quotes or a great introductory article icon.
+
     </div>
 
     <div class="thigs_i_teach">
-      <h3>Things I can teach...</h3>
+      <h3>I teach...</h3>
         <ul><% @user.offerings.each do |offering| %>
           <li><%= link_to offering.subject.name, offering_path(offering) %></li>
           <% end %>
@@ -37,9 +30,9 @@ Use a few styles together and you'll have easy pull quotes or a great introducto
       <a class="btn btn-lg btn-success" href="/offerings/new">
         <i class="fa fa-flag fa-2x pull-left"></i><i class="icon-leaf"></i></i> Teach Something New!<br>...and earn a token</a>
     </div>
+      
+
 <div>
-
-
 
   <br id="clear">
 
