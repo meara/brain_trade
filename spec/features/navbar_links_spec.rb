@@ -12,7 +12,6 @@ feature "navbar links work" do
   #SIGN UP, LOGOUT, LOGIN
   scenario "sign up, logout, login" do
     @user = FactoryGirl.build(:user)
-    p @user
     visit root_path                        # visit page where sessions are in session
     click_link "Sign Up or Login"
     current_path.should == new_user_path
@@ -22,7 +21,7 @@ feature "navbar links work" do
     fill_in "user_password", :with => @user.password
     fill_in "user_password_confirmation", :with => @user.password_confirmation
     click_button "Create User"
-    page.should have_content(@user.first_name)
+    page.should have_content('First name')
     click_link "Logout"               # click logout
     current_path.should == root_path    # verify link
     
@@ -31,7 +30,7 @@ feature "navbar links work" do
     fill_in "login_email", :with => @user.email
     fill_in "login_password", :with => @user.password
     click_button "login_user"
-    page.should have_content(@user.first_name)    # verify link
+    page.should have_content('First name')    # verify link
   end
 
 end
