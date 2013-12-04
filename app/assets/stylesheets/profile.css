@@ -1,0 +1,87 @@
+.request_container {
+  width: 900px;
+  padding-left: 50px;
+}
+
+.learning_requests {
+  background-color: tomato;
+  border-radius: 5px;
+  padding: 5px;
+  float: left;
+  width: 400px;
+
+}
+
+.teaching_requests {
+  /*background-color: red;*/
+  float: right;
+  width: 400px;
+}
+.icon-star {
+  color: gold;
+}
+.btn {
+  color: black;
+  float:center;
+}
+
+#bio_info {
+  width:300px;
+  height: auto;
+  border: 1px;
+  background-color: tomato;
+}
+
+.top_container {
+  width:900px;
+}
+.profile_info_container { 
+  font-size: 11pt;  
+  font-family: Consolas, monaco, monospace;
+  font-weight: bold; 
+  display: inline; 
+  height: 300px;
+  /*background-color: orange;*/
+  float:left;
+  width:400px;
+  /*background-color: green;*/
+  padding-top: 10px;
+  border-right: solid;
+  border-width: 1px;
+}
+
+.picture_container {
+  /*background-color: green;*/
+  float:left;
+  height: 300px;
+  width: 200px;
+}
+
+.thigs_i_teach {
+  float: left;
+  /*background-color: yellow;*/
+  width: 250px;
+  padding-left: 20px;
+}
+
+.clear {
+  clear:both;
+}
+
+ a.btn-success{
+  color:white;
+}
+#teach_button  {
+  background-color: white;
+}
+
+/* li {
+  width: 50%;  
+  float: left;  
+  position: relative;  
+
+}*/
+
+#credits {
+
+}

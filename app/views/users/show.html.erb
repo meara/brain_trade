@@ -1,38 +1,60 @@
 
-<div class= "container">
-  <div class="picture_container">
-  <% provide(:title, @user.first_name) %>
-  <h1><%= gravatar_for @user %></h1>
-  <div class="profile_name"><h1><%= @user.first_name %></h1></div>
+<div class= "top_container">
+    <div class="picture_container">
+        <% provide(:title, @user.first_name) %>
+        <h1><%= gravatar_for @user %></h1>
+        <div class="profile_name"><h1><%= @user.first_name %></h1></div>
+        <div id="credits" class="btn btn-large" href="#"><i class="icon-star"></i> Credits: <%= @user.credit  %></div>
+        <br><br>
+    </div>
 
-  <div id="credits" class="btn btn-large" href="#"><i class="icon-star"></i> Credits: <%= @user.credit  %></div><br><br>
-  </div>
 
+    <div class="profile_info_container">
+      <p id="profile_info"> First name: <%= @user.first_name %></p><br>
+      <p id="profile_info"> Last name: <%= @user.last_name %></p><br>
+      <p id="profile_info"> Email: <%= @user.email %></p><br>
+      <div class="popover right">
+          <div class="arrow"></div>
+            <h3 class="popover-title">Popover right</h3>
+            <div class="popover-content">
+              <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            </div>
+          </div>
+      Bio: <div id="bio_info"> <%= @user.bio %></div>
 
-  <div><ul class="profile_info_container">
-  <li><label id="profile_info"> First name: </label><%= @user.first_name %></li><br>
-  <li><label id="profile_info"> Last name: </label><%= @user.last_name %></li><br>
-  <li><label id="profile_info"> Email: </label><%= @user.email %></li><br>
-  <li><label id="profile_info"> Bio </label><%= @user.bio %></li>
-  </nav></div>
+<i class="fa fa-quote-left fa-2x pull-left fa-border"></i>
+Use a few styles together and you'll have easy pull quotes or a great introductory article icon.
+    </div>
+
+    <div class="thigs_i_teach">
+      <h3>Things I can teach...</h3>
+        <ul><% @user.offerings.each do |offering| %>
+          <li><%= link_to offering.subject.name, offering_path(offering) %></li>
+          <% end %>
+        </ul>
+      <br><br>
+   
+      <a class="btn btn-lg btn-success" href="/offerings/new">
+        <i class="fa fa-flag fa-2x pull-left"></i><i class="icon-leaf"></i></i> Teach Something New!<br>...and earn a token</a>
+    </div>
 <div>
+
+
+
   <br id="clear">
 
-  <div class="thigs_i_teach"><h3>Things I can teach...</h3>
 
+    <% if @user.id == current_user.id %>
+    <!-- if there's a teaching request, show teaching request -->
+      <div class="request_container">
+        <%= render "teacher_meetup_list" %>
+        <%= render "student_meetup_list" %>
+      </div>
+       <br id="clear">
+    <% end %>
 
-  <h3>Things I can teach...</h3>
-  <ul><% @user.offerings.each do |offering| %>
-    <li><%= link_to offering.subject.name, offering_path(offering) %></li>
-  <% end %></ul>
-  <br><br>
+      <div class="edit_button"><%= link_to "Edit", edit_user_path(current_user),:remote => true %></div><br>
+      <%= link_to "Delete your account", "/users/delete", :method => :delete, :class => "btn btn-danger fa fa-trash-o fa-lg", :confirm => "are you sure you want to delete your profile?" %>
+  
 
-  <% if @user.id == current_user.id %>
-    <%= render "teacher_meetup_list" %>
-    <%= render "student_meetup_list" %>
-    <div class="edit_button"><%= link_to "New Offering", new_offering_path %></div><br>
-    <div class="edit_button"><%= link_to "Edit", edit_user_path(current_user),:remote => true %></div><br>
-      <div class="edit_button"><%= link_to "Delete User", "/users/delete", :method => :delete, :confirm => "are you sure you want to delete your profile?" %></div><br>
-  <% end %>
-</div>
 <!-- </div> -->
