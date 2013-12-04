@@ -1,19 +1,22 @@
 .request_container {
-  width: 900px;
-  padding-left: 50px;
+  width: 1000px;
+  padding-left: 100px;
 }
 
 .learning_requests {
   background-color: tomato;
   border-radius: 5px;
   padding: 5px;
-  float: left;
+  float: right;
   width: 400px;
+  margin:20px;
 
 }
 
 .teaching_requests {
-  /*background-color: red;*/
+  background-color: yellow;
+  padding: 5px;
+  border-radius: 5px;
   float: right;
   width: 400px;
 }
@@ -59,7 +62,6 @@
 
 .thigs_i_teach {
   float: left;
-  /*background-color: yellow;*/
   width: 250px;
   padding-left: 20px;
 }
