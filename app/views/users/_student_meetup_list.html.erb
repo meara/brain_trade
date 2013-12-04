@@ -1,25 +1,27 @@
-<h3>My learning requests</h3>
+<div class="learning_requests">
+  <h3>My learning requests</h3>
 
-<h4>Awaiting teacher response</h4>
-  <ul>
-    <% awaiting_teacher_response_as_student.each do |meetup| %>
-      <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.offering.teacher.first_name}", meetup_path(meetup) %></il>
-    <% end %>
-  </ul>
+  <h4>Awaiting teacher response</h4>
+    <ul>
+      <% awaiting_teacher_response_as_student.each do |meetup| %>
+        <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.offering.teacher.first_name}", meetup_path(meetup) %></il>
+      <% end %>
+    </ul>
 
-<h4>Awaiting my response</h4>
+  <h4>Awaiting my response</h4>
 
-  <ul>
-    <% awaiting_student_response_as_student.each do |meetup| %>
-      <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.offering.teacher.first_name}", edit_meetup_path(meetup) %></il>
-    <% end %>
-  </ul>
+    <ul>
+      <% awaiting_student_response_as_student.each do |meetup| %>
+        <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.offering.teacher.first_name}", edit_meetup_path(meetup) %></il>
+      <% end %>
+    </ul>
 
 
-<h4>Confirmed</h4>
+  <h4>Confirmed</h4>
 
-  <ul>
-    <% confirmed_as_student.each do |meetup| %>
-      <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.offering.teacher.first_name}", meetup_path(meetup) %></il>
-    <% end %>
-  </ul>
+    <ul>
+      <% confirmed_as_student.each do |meetup| %>
+        <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.offering.teacher.first_name}", meetup_path(meetup) %></il>
+      <% end %>
+    </ul>
+</div>
