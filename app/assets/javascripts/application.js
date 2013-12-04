@@ -59,6 +59,8 @@ $(function() {
       // console.log("hidden");
   });
 
+   $(document).on
+
 
   // $(".categories a:first-child").on("click", function(event) {
   //   event.preventDefault();

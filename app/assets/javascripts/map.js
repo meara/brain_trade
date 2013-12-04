@@ -1,13 +1,13 @@
-geocoder = new google.maps.Geocoder();
+// geocoder = new google.maps.Geocoder();
 
-window.getCoordinates = function ( address, callback ) {
-	var coordinates;
-	geocoder.geocode({ address: address }, function (results, status){
-		coords_obj = results[0].geometry.location;
-		coordinates = [coords_obj.nb,coords_obj.ob];
-		callback(coordinates);
-	})
-}
+// window.getCoordinates = function ( address, callback ) {
+// 	var coordinates;
+// 	geocoder.geocode({ address: address }, function (results, status){
+// 		coords_obj = results[0].geometry.location;
+// 		coordinates = [coords_obj.nb,coords_obj.ob];
+// 		callback(coordinates);
+// 	})
+// }
 
 
 
