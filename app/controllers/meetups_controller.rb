@@ -128,9 +128,9 @@ class MeetupsController < ApplicationController
       @user_teacher = User.find(@meetup.offering.teacher_id)
       @user_teacher.credit -= 1
       @user_teacher.save
-      UserMailer.learner_meetup_confirmation(@meetup).deliver
-      UserMailer.teacher_meetup_confirmation(@meetup).deliver
-      flash[:success] = "You have cancelled your meetup with #{@meetup.offering.teacher.first_name}"
+      UserMailer.learner_meetup_cancellation(@meetup).deliver
+      UserMailer.teacher_meetup_cancellation(@meetup).deliver
+      flash[:success] = "You have cancelled your meetup"
       redirect_to(user_path(session[:user_id]))
     end
 

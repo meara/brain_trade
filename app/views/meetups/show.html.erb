@@ -19,6 +19,7 @@
 		<h3>Your learning session with <%= @meetup.offering.teacher.first_name %> will take place at <%= @meetup.date_time %>.</h3>
 		<% if @meetup.method == 'hangout' %>
 		  <h3>Your learning session will take place via Google Hangouts.</h3>
+</a>
 		<% end %>
 		<% if @meetup.method == 'in-person' %>
 		  <h3>Your learning session will take place in person at <%= @meetup.offering.location %>.</h3>
