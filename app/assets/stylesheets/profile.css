@@ -131,7 +131,6 @@ body {
 }
 .profile_info_container { 
   font-size: 11pt;  
-  font-family: Consolas, monaco, monospace;
   font-weight: bold; 
   display: inline; 
   height: 1205px;
@@ -251,32 +250,26 @@ h4 {
 }
 
 #user_first_name {
-  background-color: #F69261;
   z-index: 2;
   position: relative;
 }
 #user_last_name {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
 #user_email {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
 #user_bio {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
 #user_password {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
 #user_password_confirmation {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
