@@ -51,6 +51,11 @@ div {
 display: block;
 }
 
+#copyright {
+  font-size: 12px;
+  float: left;
+}
+
 footer {
   margin-top:50px;
   background-color: #999999;
@@ -59,4 +64,5 @@ footer {
   height: 20px;
   font-size: 100%;
 }
+
 
