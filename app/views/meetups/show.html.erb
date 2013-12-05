@@ -14,7 +14,7 @@
 
 	  <% if @meetup.accepted == true && @meetup.date_time != nil%>
 		  <h3><%= @meetup.offering.teacher.first_name %>, your time has been accepted!</h3>
-			<h3>Your learning session with <%= @meetup.learner.first_name %> will take place at <%= @meetup.date_time %>.</h3>
+			<h3>Your learning session with <%= @meetup.learner.first_name %> will take place at <%= @meetup.date_time.strftime('%A, %B %d at %I:%M %p') %>.</h3>
 
 			<% if @meetup.method == 'hangout' %>
 			  <h3>Your learning session will take place via video chat.</h3>
@@ -52,7 +52,7 @@
 
 		<% if @meetup.accepted == true && @meetup.date_time != nil%>
 			<h3>Meetup confirmed!</h3>
-			<h3>Your learning session with <%= @meetup.offering.teacher.first_name %> will take place at <%= @meetup.date_time %>.</h3>
+			<h3>Your learning session with <%= @meetup.offering.teacher.first_name %> will take place at <%= @meetup.date_time.strftime('%A, %B %d at %I:%M %p') %>.</h3>
 
 			<% if @meetup.method == 'hangout' %>
 			  <h3>Your learning session will take place via video chat.</h3>
