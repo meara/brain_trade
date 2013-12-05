@@ -51,4 +51,9 @@ div {
 display: block;
 }
 
+#copyright {
+  font-size: 12px;
+  float: left;
+}
+
 
