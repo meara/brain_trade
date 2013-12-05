@@ -5,7 +5,7 @@
 <%= form_for @meetup, url: {action: "update"} do |f| %>
 <h4>If you would like to accept <%= @learner.first_name %>'s request, please select three times you are available to teach.  (<%= @learner.first_name %> will select one.)</h4>
 <%= f.label :option_one %>
-<%= f.datetime_select(:time1) %><br/><br/>
+<%= f.datetime_select(@meetup.time1.strftime('%A, %B %d at %I:%M %p')) %><br/><br/>
 <%= f.label :option_two %>
 <%= f.datetime_select(:time2, {:class => 'date-select'}) %><br/><br/>
 <%= f.label :option_three %>
