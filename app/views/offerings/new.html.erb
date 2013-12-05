@@ -15,12 +15,19 @@ More details: (Your background in this subject, etc.) -->
   <%= f.label :subject %>
   <%= f.text_field :subject %>
 
-  <%= f.label :hangout %>
-  <%= f.check_box :hangout %>
+  <div>Please choose your availability type...</div>
 
-  <%= f.label :in_person %>
-  <%= f.check_box :in_person %>
+  <div><label class="hangout_check_box">
+    <%= f.label :hangout, :class => "checkbox inline" %>
+    <%= f.check_box :hangout %><br>
+  </label></div>
 
+
+
+  <div class"in_person_check_box">
+    <%= f.label :in_person, :class => "checkbox inline" %>
+    <%= f.check_box :in_person %><br><br>
+  </div>
 
   <!-- for v 1.1 will add AJAX so this field
   only appears if in-person box is checked -->
@@ -29,7 +36,6 @@ More details: (Your background in this subject, etc.) -->
 
   <%= f.label :details %>
   <%= f.text_area :details %>
-
   <br>
 
   <%= f.submit "Create" %>

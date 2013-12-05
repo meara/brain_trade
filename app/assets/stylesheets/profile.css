@@ -57,7 +57,6 @@ font-size: 13px;
   border-radius: .3em;
 }
 
-
 .request_container {
   width: 1000px;
   padding-left: 100px;
@@ -123,17 +122,16 @@ font-size: 13px;
 }
 .profile_info_container { 
   font-size: 11pt;  
-  font-family: Consolas, monaco, monospace;
   font-weight: bold; 
   display: inline; 
   height: 1205px;
   float:left;
   width:425px;
-  padding-right: 35px;
+  padding-right: 80px;
   padding-top: 10px;
   border-width: 1px;
   border-width: 1px;
-  padding-left: 35px;
+  padding-left: 80px;
   font-family: futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 20px;
   font-weight: bold;
@@ -144,6 +142,7 @@ font-size: 13px;
   float:left;
   height: 300px;
   width: 200px;
+  padding-right: 48px;
 }
 
 .thigs_i_teach {
@@ -242,32 +241,26 @@ h4 {
 }
 
 #user_first_name {
-  background-color: #F69261;
   z-index: 2;
   position: relative;
 }
 #user_last_name {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
 #user_email {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
 #user_bio {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
 #user_password {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
 #user_password_confirmation {
-  background-color: #F69261;
   z-index: 1;
   position: relative;
 }
