@@ -1,0 +1,36 @@
+select {
+  width: 70px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+}
+
+select#meetup_time1_2i  {
+  width: 120px;
+}
+
+select#meetup_time2_2i  {
+  width: 120px;
+}
+select#meetup_time3_2i  {
+  width: 120px;
+}
+
+select#meetup_time1_3i {
+  width: 50px;
+}
+select#meetup_time2_3i {
+  width: 50px;
+}
+select#meetup_time3_3i {
+  width: 50px;
+}
+
+#meetup_accepted {
+  color: white;
+  background-color: blue;
+}
+
+#meetup_date_time {
+  width: 200px;
+}
+
