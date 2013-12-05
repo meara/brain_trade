@@ -214,16 +214,17 @@ font-size: 13px;
 }
 
 .edit_button {
-  color: #181242;
+  color: #0088cc;
   width:5px;
   padding-top: 5px;
 }
 
 a.btn.btn-link {
   width: 5px;
-  color:black;
+  color:#0088cc;
   padding-left: 35px;
   padding-top: 9px;
+
 }
 
 #copyright {
