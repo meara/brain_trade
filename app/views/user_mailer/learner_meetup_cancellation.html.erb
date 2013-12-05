@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3><%= @learner.first_name.capitalize %> </h3>
+    <p>Your meetup with <%= @teacher.first_name %> to talk about <%= @meetup.offering.subject.name%> at <%= @meetup.date_time %> has been cancelled.</p>
+     
+     <p>To see your meetup details, click this link: <%= @meetup_confirmation_link %></p>
+
+    <%#= image_tag attachments['braintrade_logo.png'].url %>
+  </body>
+</html>

@@ -17,7 +17,7 @@
               <ul class="list-group" >
                 <li class="list-group-item" id="subjectid<%=subject.id%>">
                    <%= link_to offering_url(offering) do %>
-                        <%= gravatar_for(offering.teacher) %>
+                        <%= gravatar_for offering.teacher %>
                         <%= offering.teacher.first_name %>
                       <% end %>
                 </li>
