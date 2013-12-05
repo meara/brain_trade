@@ -1,9 +1,13 @@
+require 'mail'
+
 class UserMailer < ActionMailer::Base
   default from: 'braintradeteam@gmail.com'
 
   def welcome_email(user)
     @user = user
     @url  = 'http://braintrade.herokuapp.com'
+    @user_profile_link = "http://braintrade.herokuapp.com#{user_path(@user)}"
+    attachments['braintrade_logo.png'] = File.read('app/assets/images/braintrade_logo.png')
     mail(to: @user.email, subject: 'Welcome to BrainTrade')
     #attachments.inline['braintrade_logo.png'] = File.read(Rails.root.join("/app/assets/images/braintrade_logo.png"))
   end
@@ -16,7 +20,7 @@ class UserMailer < ActionMailer::Base
     @teacher = meetup.offering.teacher
     @learner_profile_link = "http://braintrade.herokuapp.com#{user_path(@learner)}"
     @meetup_link = "http://braintrade.herokuapp.com#{edit_meetup_path(@meetup)}"
-
+    attachments['braintrade_logo.png'] = File.read('app/assets/images/braintrade_logo.png')
     mail(to: @teacher.email, subject: 'Someone wants to learn from you')
   end
 
@@ -25,7 +29,7 @@ class UserMailer < ActionMailer::Base
     @learner = meetup.learner
     @teacher = meetup.offering.teacher
     @meetup_link = "http://braintrade.herokuapp.com#{edit_meetup_path(@meetup)}"
-
+    attachments['braintrade_logo.png'] = File.read('app/assets/images/braintrade_logo.png')
     mail(to: @learner.email, subject: 'Your learning request')
   end
 
@@ -34,7 +38,7 @@ class UserMailer < ActionMailer::Base
     @learner = meetup.learner
     @teacher = meetup.offering.teacher
     @learn_link = "http://braintrade.herokuapp.com/categories"
-
+    attachments['braintrade_logo.png'] = File.read('app/assets/images/braintrade_logo.png')
     mail(to: @learner.email, subject: 'Your learning request')
   end
 
@@ -46,7 +50,7 @@ class UserMailer < ActionMailer::Base
     @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
     @learner_profile_link = "http://braintrade.herokuapp.com#{user_path(@learner)}"
 
-
+    attachments['braintrade_logo.png'] = File.read('app/assets/images/braintrade_logo.png')
     mail(to: @teacher.email, subject: 'Your meetup is confirmed!')
   end
 
@@ -56,7 +60,7 @@ class UserMailer < ActionMailer::Base
     @learner = meetup.learner
     @teacher = meetup.offering.teacher
     @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
-
+    attachments['braintrade_logo.png'] = File.read('app/assets/images/braintrade_logo.png')
     mail(to: @learner.email, subject: 'Your meetup is confirmed!')
   end
 
@@ -66,7 +70,7 @@ class UserMailer < ActionMailer::Base
     @learner = meetup.learner
     @teacher = meetup.offering.teacher
     @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
-
+    attachments['braintrade_logo.png'] = File.read('app/assets/images/braintrade_logo.png')
     mail(to: @learner.email, subject: 'Your meetup is cancelled.')
   end
 
@@ -77,7 +81,7 @@ class UserMailer < ActionMailer::Base
     @learner = meetup.learner
     @teacher = meetup.offering.teacher
     @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
-
+    attachments['braintrade_logo.png'] = File.read('app/assets/images/braintrade_logo.png')
     mail(to: @teacher.email, subject: 'Your meetup is cancelled.')
   end
 
