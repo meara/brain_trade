@@ -37,7 +37,9 @@ $(function() {
 
    $(document).on("click", "a[data-remote=true].subjects", function(event) {
       var link = $(this).attr("href")
-      var id = link.charAt(link.length - 1)
+      console.log(link);
+      // var id = link.charAt(link.length - 1)
+      var id = link.substr(10, link.length);
       console.log(link)
       console.log(id)
       // console.log(event);
@@ -59,13 +61,13 @@ $(function() {
       // console.log("hidden");
   });
   
-  $(document).on("submit", ".new_offering", function(event) {
+  // $(document).on("submit", ".new_offering", function(event) {
 
-    console.log(event);
-    var data = $(this).serialize();
-    console.log(data);
+  //   console.log(event);
+  //   var data = $(this).serialize();
+  //   console.log(data);
     
-  });
+  // });
 
 
 

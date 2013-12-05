@@ -20,7 +20,19 @@
 
     <ul>
       <% confirmed_as_teacher.each do |meetup| %>
+      <% if meetup.cancelled == nil %>
         <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.learner.first_name}", meetup_path(meetup) %></il>
+          <% end%>
+      <% end %>
+    </ul>
+
+    <h4>Cancelled</h4>
+
+    <ul>
+      <% confirmed_as_teacher.each do |meetup| %>
+      <% if meetup.cancelled == true %>
+        <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.learner.first_name}", meetup_path(meetup) %></il>
+      <% end %>
       <% end %>
     </ul>
 </div>
