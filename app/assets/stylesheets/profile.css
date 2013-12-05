@@ -82,9 +82,7 @@ font-size: 13px;
 
 .teaching_requests {
   border-top: solid;
-  /*border-radius: 5px;*/
   float: left;
-  /*width: 400px;*/
   color: #181242;
 }
 
@@ -118,7 +116,6 @@ font-size: 13px;
   border-width: 1px;
   color: #181242;
   border-color: #181242;
-  /*background-color: tomato;*/
 }
 
 .top_container {
@@ -142,7 +139,6 @@ font-size: 13px;
 }
 
 .picture_container {
-  /*background-color: green;*/
   float:left;
   height: 300px;
   width: 200px;
@@ -155,7 +151,6 @@ font-size: 13px;
 }
 
 #teach_name {
-  /*color: #87C440;*/
   list-style-type: none;
   font-family: futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 19px;
@@ -188,21 +183,11 @@ font-size: 13px;
 }
 
 #teach_button  {
-  /*color: #87C440;*/
   background-color: white;
 }
 
-.icon_leaf {
-}
-
-/* li {
-  width: 50%;  
-  float: left;  
-  position: relative;  
-}*/
-
 .profile_name {
-  font-family: futura
+  font-family: futura;
   color: #181242;
   border-bottom: solid;
   border-color: #181242;
