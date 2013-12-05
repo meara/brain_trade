@@ -41,7 +41,7 @@ gem "twitter-bootstrap-rails"
 
 gem 'coveralls', require: false
 
-# gem 'faker'
+gem 'faker'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
