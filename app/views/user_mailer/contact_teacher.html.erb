@@ -4,10 +4,10 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h3><%= link_to @learner.first_name, @learner_profile_link %> is interested in learning from you at BrainTrade, <%= @teacher.first_name %>!</h3>
+    <h2><%= link_to @learner.first_name, @learner_profile_link %> is interested in learning from you at BrainTrade, <%= @teacher.first_name %>!</h2>
 
-    <p> Please accept or decline this learning request by visiting this link: <%= @meetup_link %></p>
+    <h3><p> Please accept or decline this learning request by visiting this link: <%= @meetup_link %></p><h3>
 
-    <%#= image_tag attachments['braintrade_logo.png'].url %>
+     <%= image_tag attachments.inline['braintrade_logo.png'].url, :size => "250x250"%>
   </body>
 </html>
