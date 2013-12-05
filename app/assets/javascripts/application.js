@@ -17,8 +17,8 @@
 
 // AJAX edit button
 $(function() {
-  $(document).on("ajax:success", ".edit_button a[data-remote=true]", function(event, data) {
-    $(".edit_button a[data-remote=true]").replaceWith(data);
+  $(document).on("ajax:success", ".edit_button_profile a[data-remote=true]", function(event, data) {
+    $(".edit_button_profile a[data-remote=true]").replaceWith(data);
   });
 
 // AJAX categories

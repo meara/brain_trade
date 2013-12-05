@@ -57,6 +57,14 @@ font-size: 13px;
   border-radius: .3em;
 }
 
+.row-fluid {
+
+}
+
+body {
+  background-color: ;
+}
+
 
 .request_container {
   width: 1000px;
@@ -129,11 +137,11 @@ font-size: 13px;
   height: 1205px;
   float:left;
   width:425px;
-  padding-right: 35px;
+  padding-right: 80px;
   padding-top: 10px;
   border-width: 1px;
   border-width: 1px;
-  padding-left: 35px;
+  padding-left: 80px;
   font-family: futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 20px;
   font-weight: bold;
@@ -144,6 +152,7 @@ font-size: 13px;
   float:left;
   height: 300px;
   width: 200px;
+  padding-right: 48px;
 }
 
 .thigs_i_teach {
