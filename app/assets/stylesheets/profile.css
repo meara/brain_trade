@@ -5,6 +5,9 @@
 
 #teach_title {
   color: #F69261;
+  font-family: futura, "Trebuchet MS", Arial, sans-serif;
+  font-size: 24px;
+  padding-top: 30px;
 }
 
 #learn_title {
@@ -90,11 +93,6 @@
   float: left;
   width: 250px;
   
-}
-
-#teach_title {
-  font-family: futura, "Trebuchet MS", Arial, sans-serif;
-  font-size: 24px;
 }
 
 #teach_name {

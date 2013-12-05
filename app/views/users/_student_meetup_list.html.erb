@@ -1,14 +1,14 @@
 <div class="learning_requests">
   <div id="learn_title"><h3>My learning requests:</h3></div>
-  
-  <h4>Awaiting teacher response</h4>
+
+  <h4>Teachers I would like to learn from...</h4>
     <ul>
       <% awaiting_teacher_response_as_student.each do |meetup| %>
         <li><%= link_to "#{meetup.offering.subject.name} with #{meetup.offering.teacher.first_name}", meetup_path(meetup) %></il>
       <% end %>
     </ul>
 
-  <h4>Awaiting my response</h4>
+  <h4>Teachers awaiting my scheduling response...</h4>
 
     <ul>
       <% awaiting_student_response_as_student.each do |meetup| %>
@@ -17,7 +17,7 @@
     </ul>
 
 
-  <h4>Confirmed</h4>
+  <h4>Teachers I'm scheduled to learn from...</h4>
 
     <ul>
       <% confirmed_as_student.each do |meetup| %>
