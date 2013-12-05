@@ -2,7 +2,7 @@
 	<% if @meetup.accepted == true %>
 		<% if @meetup.date_time != nil %>
 			<h3><%= @meetup.offering.teacher.first_name %>, your time has been accepted!</h3>
-			<h3>Please meet <%=@meetup.learner.first_name %> at <%= @meetup.date_time %></h3>
+			<h3>Please meet <%=@meetup.learner.first_name %> on <%= @meetup.date_time.strftime('%A, %B %d at %I:%M %p') %></h3>
 			<% else %>
 		<h3>Thanks!  Your availability has been submitted.</h3>
 		<h3>Please be patient while <%= @meetup.learner.first_name %> chooses a time.</h3>
@@ -16,7 +16,7 @@
 	<h3> You have requested to learn <%= @meetup.offering.subject.name %> from <%= @meetup.offering.teacher.first_name %>.</h3>
 	<% if @meetup.accepted == true %>
 		<h3>Meetup confirmed!</h3>
-		<h3>Your learning session with <%= @meetup.offering.teacher.first_name %> will take place at <%= @meetup.date_time %>.</h3>
+		<h3>Your learning session with <%= @meetup.offering.teacher.first_name %> will take place at <%= @meetup.date_time.strftime('%A, %B %d at %I:%M %p') %>.</h3>
 		<% if @meetup.method == 'hangout' %>
 		  <h3>Your learning session will take place via Google Hangouts.</h3>
 </a>
