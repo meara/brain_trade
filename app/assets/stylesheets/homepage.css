@@ -51,4 +51,12 @@ div {
 display: block;
 }
 
+footer {
+  margin-top:50px;
+  background-color: #999999;
+  color: white;
+  text-align: center ;
+  height: 20px;
+  font-size: 100%;
+}
 
