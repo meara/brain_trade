@@ -18,7 +18,11 @@
 
 			<% if @meetup.method == 'hangout' %>
 			  <h3>Your learning session will take place via video chat.</h3>
-			  <p>Chat room name: <%= @meetup.offering.teacher.first_name + @meetup.learner.first_name + @meetup.id.to_s %>.</p>
+			  <h4>Your channel name: <%= @meetup.offering.teacher.first_name + @meetup.learner.first_name + @meetup.id.to_s %>.</h4>
+			  <!-- Begin Fresh Tilled Soil Video Chat Embed Code -->
+				<div id="freshtilledsoil_embed_widget" class="video-chat-widget"></div>
+				<script id="fts" src="http://freshtilledsoil.com/embed/webrtc-v5.js?r=FTS1105-lEGfCfal"></script>
+				<!-- End Fresh Tilled Soil Video Chat Embed Code -->
 			<% end %>
 
 			<% if @meetup.method == 'in-person' %>
@@ -52,7 +56,11 @@
 
 			<% if @meetup.method == 'hangout' %>
 			  <h3>Your learning session will take place via video chat.</h3>
-			  <p>Chat room name: <%= @meetup.offering.teacher.first_name + @meetup.learner.first_name + @meetup.id.to_s %>.</p>
+			  <h4>Your channel name: <%= @meetup.offering.teacher.first_name + @meetup.learner.first_name + @meetup.id.to_s %>.</h4>
+			  <!-- Begin Fresh Tilled Soil Video Chat Embed Code -->
+				<div id="freshtilledsoil_embed_widget" class="video-chat-widget"></div>
+				<script id="fts" src="http://freshtilledsoil.com/embed/webrtc-v5.js?r=FTS1105-lEGfCfal"></script>
+				<!-- End Fresh Tilled Soil Video Chat Embed Code -->
 			<% end %>
 
 			<% if @meetup.method == 'in-person' %>
