@@ -211,6 +211,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 1.2)
   jquery-rails
+  mail
   omniauth-google-oauth2
   pg
   protected_attributes

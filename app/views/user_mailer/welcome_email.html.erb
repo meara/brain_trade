@@ -4,12 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h3>Welcome to BrainTrade, <%= @user.first_name %>!</h3>
-    <p>
-      To visit to the site, just follow this link: braintrade.herokuapp.com %>.
-    </p>
-    <p>Thanks for joining and have a great day!</p>
-
-    <%#= image_tag attachments['braintrade_logo.png'].url %>
+    <h2>Welcome to BrainTrade, <%= @user.first_name %>!</h3>
+    <h3>
+      <p>To visit to the site, just follow this link: braintrade.herokuapp.com.</p>
+      <p>To visit your profile, click here: <%= @user_profile_link %>.</p>
+    </h3>
+    <h3><p>Thanks for joining and have a great day!</p></h3>
+     <%= image_tag attachments.inline['braintrade_logo.png'].url, :size => "250x250"%>
   </body>
 </html>

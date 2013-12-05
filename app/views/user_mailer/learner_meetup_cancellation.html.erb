@@ -4,11 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h3><%= @learner.first_name.capitalize %> </h3>
-    <p>Your meetup with <%= @teacher.first_name %> to talk about <%= @meetup.offering.subject.name%> at <%= @meetup.date_time %> has been cancelled.</p>
+    <h2><%= @learner.first_name.capitalize %> </h2>
+    <h3><p>Your meetup with <%= @teacher.first_name %> to talk about <%= @meetup.offering.subject.name%> at <%= @meetup.date_time %> has been cancelled.</p></h3>
      
-     <p>To see your meetup details, click this link: <%= @meetup_confirmation_link %></p>
+     <h3><p>To see your meetup details, click this link: <%= @meetup_confirmation_link %></p></h3>
 
-    <%#= image_tag attachments['braintrade_logo.png'].url %>
+     <%= image_tag attachments.inline['braintrade_logo.png'].url, :size => "250x250"%>
   </body>
 </html>
