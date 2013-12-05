@@ -57,6 +57,7 @@ font-size: 13px;
   border-radius: .3em;
 }
 
+
 .request_container {
   width: 1000px;
   padding-left: 100px;
@@ -97,7 +98,6 @@ font-size: 13px;
   float:center;
   width: 161px;
   color: #87C440;
-
 }
 
 .icon-star {
@@ -215,10 +215,23 @@ font-size: 13px;
 
 .edit_button {
   color: #181242;
+  width:5px;
+  padding-top: 5px;
+}
+
+a.btn.btn-link {
+  width: 5px;
+  color:black;
+  padding-left: 35px;
+  padding-top: 9px;
 }
 
 #copyright {
   float: bottom;
+}
+
+.teaching_button {
+  height: 45px;
 }
 
 

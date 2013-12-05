@@ -21,7 +21,7 @@ feature "navbar links work" do
     fill_in "user_password", :with => @user.password
     fill_in "user_password_confirmation", :with => @user.password_confirmation
     click_button "Create User"
-    page.should have_content('First name')
+    page.should have_content('I teach')
     click_link "Logout"               # click logout
     current_path.should == root_path    # verify link
     
@@ -30,7 +30,6 @@ feature "navbar links work" do
     fill_in "login_email", :with => @user.email
     fill_in "login_password", :with => @user.password
     click_button "login_user"
-    page.should have_content('First name')    # verify link
+    page.should have_content('I teach')    # verify link
   end
-
 end
