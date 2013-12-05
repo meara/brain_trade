@@ -5,6 +5,7 @@ class MeetupsController < ApplicationController
 
   def show
     @meetup = Meetup.find(params[:id])
+    @offering = @meetup.offering
     t_id = @meetup.offering.teacher_id
     l_id = @meetup.learner_id
     if !(current_user.id == t_id || current_user.id == l_id)
