@@ -16,7 +16,7 @@ describe UserMailer do
     end
 
     it 'renders the sender email' do
-      email.from.should == ['braintradeteam@gmail.com']
+      email.from.should == ['app19952162@heroku.com']
     end
   end
 
@@ -31,7 +31,7 @@ describe UserMailer do
     end
 
     it 'renders the sender email' do
-      email.from.should == ['braintradeteam@gmail.com']
+      email.from.should == ['app19952162@heroku.com']
     end
 
   end
@@ -47,7 +47,7 @@ describe UserMailer do
     end
 
     it 'renders the sender email' do
-      email.from.should == ['braintradeteam@gmail.com']
+      email.from.should == ['app19952162@heroku.com']
     end
   end
 
@@ -62,7 +62,7 @@ describe UserMailer do
     end
 
     it 'renders the sender email' do
-      email.from.should == ['braintradeteam@gmail.com']
+      email.from.should == ['app19952162@heroku.com']
     end
   end
 
@@ -77,7 +77,7 @@ describe UserMailer do
     end
 
     it 'renders the sender email' do
-      email.from.should == ['braintradeteam@gmail.com']
+      email.from.should == ['app19952162@heroku.com']
     end
   end
 
@@ -92,7 +92,7 @@ describe UserMailer do
     end
 
     it 'renders the sender email' do
-      email.from.should == ['braintradeteam@gmail.com']
+      email.from.should == ['app19952162@heroku.com']
     end
   end
 
