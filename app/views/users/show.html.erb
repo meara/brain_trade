@@ -10,7 +10,7 @@
           <a class="btn" href="/offerings/new">
             <i class="fa fa-flag fa-2x pull-left"></i><i class="icon-leaf"></i></i> Teach Something New!</a>
       
-        <div class="edit_button"><%= link_to "Edit", edit_user_path(current_user),:remote => true %></div>
+        <div class="edit_button_profile"><%= link_to "Edit", edit_user_path(current_user),:remote => true %></div>
          <br>
     </div id="delete"><%= link_to "Delete", "/users/delete", :method => :delete, :class => "btn btn-link", :confirm => "are you sure you want to delete your profile?" %>
         </div>
@@ -28,7 +28,7 @@
     <div class="thigs_i_teach">
       <h3 id="teach_title">I teach:</h3>
         <ul id="subject_grouping"><% @user.offerings.each do |offering| %>
-          <li id="teach_name"><%= link_to offering.subject.name, offering_path(offering) %>,</li>
+          <li id="teach_name"><%= link_to offering.subject.name, offering_path(offering) %></li>
           <% end %>
         </ul>
       <br><br>

@@ -126,9 +126,10 @@ font-size: 13px;
   font-family: Consolas, monaco, monospace;
   font-weight: bold; 
   display: inline; 
-  height: 800px;
+  height: 1205px;
   float:left;
-  width:400px;
+  width:425px;
+  padding-right: 35px;
   padding-top: 10px;
   border-width: 1px;
   border-width: 1px;
@@ -136,6 +137,7 @@ font-size: 13px;
   font-family: futura, "Trebuchet MS", Arial, sans-serif;
   font-size: 20px;
   font-weight: bold;
+  background-color: #eeeeee;
 }
 
 .picture_container {
@@ -213,18 +215,18 @@ font-size: 13px;
   height: 400px;
 }
 
-.edit_button {
+.edit_button_profile {
   color: #0088cc;
-  width:5px;
-  padding-top: 5px;
+  width:15px;
+  padding-top: 40px;
+  padding-left: 13px;
 }
 
 a.btn.btn-link {
-  width: 5px;
   color:#0088cc;
-  padding-left: 35px;
-  padding-top: 9px;
-
+  padding-top: 20px;
+  float: left;
+  width: 0px;
 }
 
 #copyright {
@@ -236,7 +238,40 @@ a.btn.btn-link {
 }
 
 h4 {
-  padding-bottom: 30px;
+  padding-top: 30px;
 }
+
+#user_first_name {
+  background-color: #F69261;
+  z-index: 2;
+  position: relative;
+}
+#user_last_name {
+  background-color: #F69261;
+  z-index: 1;
+  position: relative;
+}
+#user_email {
+  background-color: #F69261;
+  z-index: 1;
+  position: relative;
+}
+#user_bio {
+  background-color: #F69261;
+  z-index: 1;
+  position: relative;
+}
+#user_password {
+  background-color: #F69261;
+  z-index: 1;
+  position: relative;
+}
+#user_password_confirmation {
+  background-color: #F69261;
+  z-index: 1;
+  position: relative;
+}
+
+
 
 
