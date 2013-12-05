@@ -202,11 +202,12 @@ font-size: 13px;
 }*/
 
 .profile_name {
-  font-family: futura std: extra bold;
+  font-family: futura
   color: #181242;
   border-bottom: solid;
   border-color: #181242;
   border-width: 1px;
+  font-weight: bold;
 }
 
 .gravatar {
