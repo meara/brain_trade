@@ -60,6 +60,27 @@ class UserMailer < ActionMailer::Base
     mail(to: @learner.email, subject: 'Your meetup is confirmed!')
   end
 
+  def learner_meetup_cancellation(meetup)
+    @meetup = meetup
+
+    @learner = meetup.learner
+    @teacher = meetup.offering.teacher
+    @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
+
+    mail(to: @learner.email, subject: 'Your meetup is cancelled.')
+  end
+
+
+  def teacher_meetup_cancellation(meetup)
+    @meetup = meetup
+
+    @learner = meetup.learner
+    @teacher = meetup.offering.teacher
+    @meetup_confirmation_link = "http://braintrade.herokuapp.com#{meetup_path(@meetup)}"
+
+    mail(to: @teacher.email, subject: 'Your meetup is cancelled.')
+  end
+
 
 end
 
