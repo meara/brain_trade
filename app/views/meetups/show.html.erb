@@ -27,6 +27,7 @@
 
 			<% if @meetup.method == 'in-person' %>
 				<h3>Your learning session will take place in person at <%= @meetup.offering.location %>.</h3>
+				<%= render "shared/maps"%>
 			<% end %>
 
 		<% end %>
@@ -65,6 +66,7 @@
 
 			<% if @meetup.method == 'in-person' %>
 				<h3>Your learning session will take place in person at <%= @meetup.offering.location %>.</h3>
+				<%= render "shared/maps"%>
 			<% end %>
 
 		<% end %>
