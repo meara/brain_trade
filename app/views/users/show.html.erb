@@ -28,7 +28,7 @@
     <div class="thigs_i_teach">
       <h3 id="teach_title">I teach:</h3>
         <ul id="subject_grouping"><% @user.offerings.each do |offering| %>
-          <li id="teach_name"><%= link_to offering.subject.name, offering_path(offering) %>,</li>
+          <li id="teach_name"><%= link_to offering.subject.name, offering_path(offering) %></li>
           <% end %>
         </ul>
       <br><br>
