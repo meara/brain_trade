@@ -1,5 +1,8 @@
 class MeetupsController < ApplicationController
 
+  skip_before_action :require_login, except: [:create, :update]
+  skip_before_action :warn_not_logged_in, except: [:new, :edit]
+
   def show
     @meetup = Meetup.find(params[:id])
     t_id = @meetup.offering.teacher_id
@@ -8,7 +11,6 @@ class MeetupsController < ApplicationController
       flash[:error] = 'You do not have permission to view that page.'
       redirect_to root_path
     end
-
     #details of agreed-upon meetup
     #include a link to cancel meetup, links to edit
   end
@@ -29,14 +31,6 @@ class MeetupsController < ApplicationController
     flash[:success] = "You have been signed up for this course!"  
     @user.credit -= 1 
     @user.save
-    # @user_teacher = User.find(@meetup.offering.teacher_id)
-    # @user_teacher.credit += 1
-    # @user_teacher.save
-    # puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-    # puts @meetup.inspect
-    # puts "wheeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-    # puts params.inspect
-    # puts "%%%%%%%%%%%%%%%"
     #generates an email to the teacher containing a link to edit
     UserMailer.contact_teacher(@meetup).deliver
     redirect_to meetup_path(@meetup)  
@@ -138,10 +132,5 @@ class MeetupsController < ApplicationController
     #if cancelling after the fact
       #generate email to both saying cancelled with message
   end
-  
-
-  private
-
-  #helper methods for the edit and update actions would go here
 
 end

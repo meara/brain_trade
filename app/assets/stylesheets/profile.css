@@ -13,6 +13,10 @@
 
 }
 
+.btn.btn-medium.btn-primary a {
+  color: white;
+}
+
 .teaching_requests {
   background-color: yellow;
   padding: 5px;

@@ -14,7 +14,7 @@ feature "A user should be able to delete their account" do
     fill_in "user_password_confirmation", :with => user.password_confirmation
     click_button "Create User" 
 
-		click_link 'Delete User' 
+		click_link 'Delete Your Account' 
 		# page.driver.browser.accept_js_confirms 
 
 		expect(page).to have_text("Create Account") 

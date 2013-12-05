@@ -17,10 +17,10 @@
   padding-right: 50px;
   
 }
-.featurette-image.pull-left  {
+.featurette-image.pull-right  {
   
-  max-width: 30%;
-  float:left;
+  max-height: 230px;
+  float:right;
   padding-left: 50px;
 }
 
