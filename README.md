@@ -20,10 +20,10 @@ This site was created by:
 ---------------------
 
 
-*[Meara Charnetzki](https://github.com/meara)
-*[Elaine Yu](https://github.com/ElaineYu)
-*[Connor McCrone](https://github.com/conman246)
-*[Oliver Francescatti](https://github.com/obf73)
+*   [Meara Charnetzki](https://github.com/meara)
+*   [Elaine Yu](https://github.com/ElaineYu)
+*   [Connor McCrone](https://github.com/conman246)
+*   [Oliver Francescatti](https://github.com/obf73)
 
 
 ![alt text](/app/assets/images/homepage.png "Homepage")
