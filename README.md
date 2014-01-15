@@ -1,6 +1,3 @@
-== README
-
-
 BrainTrade
 ====================
 braintrade.herokuapp.com
@@ -21,14 +18,26 @@ This web application was developed using Ruby on Rails and tested with RSpec, Ca
 
 This site was created by:
 ---------------------
-+[Meara Charnetzki](https://github.com/meara)
-+[Elaine Yu](https://github.com/ElaineYu)
-+[Connor McCrone](https://github.com/conman246)
-+[Oliver Francescatti](https://github.com/obf73)
+
+
+*[Meara Charnetzki](https://github.com/meara)
+*[Elaine Yu](https://github.com/ElaineYu)
+*[Connor McCrone](https://github.com/conman246)
+*[Oliver Francescatti](https://github.com/obf73)
+
 
 ![alt text](/app/assets/images/homepage.png "Homepage")
+
+
 ![alt text](/app/assets/images/browse_categories.png "Browse Categories")
+
+
 ![alt text](/app/assets/images/browse_subjects.png "Browse Subjects")
+
+
 ![alt text](/app/assets/images/learn_from_dave.png "Learn from someone")
+
 ![alt text](/app/assets/images/login.png "Login and Sign Up")
+
+![alt text](/app/assets/images/action_mailer_learning_request_accepted.png "Get an Email Notification")
 
