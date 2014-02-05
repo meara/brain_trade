@@ -1,7 +1,7 @@
 require 'mail'
 
 class UserMailer < ActionMailer::Base
-  default from: 'braintradeteam@gmail.com'
+  default from: 'app19952162@heroku.com'
 
   def welcome_email(user)
     @user = user
